@@ -46,6 +46,41 @@
           <attvalue for="0" value="script" />
         </attvalues>
       </node>
+      <node id="cloud/" label="cloud/">
+        <attvalues>
+          <attvalue for="0" value="library" />
+        </attvalues>
+      </node>
+      <node id="Caso de uso 1 - https://gerardoesquivia.com/google-cloud/" label="Caso de uso 1 - https://gerardoesquivia.com/google-cloud/">
+        <attvalues>
+          <attvalue for="0" value="usecase" />
+        </attvalues>
+      </node>
+      <node id="# Caso de uso 1 - https://gerardoesquivia.com/google-cloud/&#10;BigQuery" label="# Caso de uso 1 - https://gerardoesquivia.com/google-cloud/&#10;BigQuery">
+        <attvalues>
+          <attvalue for="0" value="script" />
+        </attvalues>
+      </node>
+      <node id="Caso de uso 2 - https://gerardoesquivia.com/google-cloud/" label="Caso de uso 2 - https://gerardoesquivia.com/google-cloud/">
+        <attvalues>
+          <attvalue for="0" value="usecase" />
+        </attvalues>
+      </node>
+      <node id="# Caso de uso 2 - https://gerardoesquivia.com/google-cloud/&#10;# 1. Autenticarse y elegir proyecto&#10;gcloud auth login&#10;gcloud config set project MI_PROYECTO&#10;&#10;# 2. Cloud Storage: crear bucket y subir un archivo&#10;gsutil mb gs://mi-bucket-ejemplo&#10;gsutil cp archivo.txt gs://mi-bucket-ejemplo/" label="# Caso de uso 2 - https://gerardoesquivia.com/google-cloud/&#10;# 1. Autenticarse y elegir proyecto&#10;gcloud auth login&#10;gcloud config set project MI_PROYECTO&#10;&#10;# 2. Cloud Storage: crear bucket y subir un archivo&#10;gsutil mb gs://mi-bucket-ejemplo&#10;gsutil cp archivo.txt gs://mi-bucket-ejemplo/">
+        <attvalues>
+          <attvalue for="0" value="script" />
+        </attvalues>
+      </node>
+      <node id="Caso de uso 3 - https://gerardoesquivia.com/google-cloud/" label="Caso de uso 3 - https://gerardoesquivia.com/google-cloud/">
+        <attvalues>
+          <attvalue for="0" value="usecase" />
+        </attvalues>
+      </node>
+      <node id="# Caso de uso 3 - https://gerardoesquivia.com/google-cloud/&#10;gcloud auth login" label="# Caso de uso 3 - https://gerardoesquivia.com/google-cloud/&#10;gcloud auth login">
+        <attvalues>
+          <attvalue for="0" value="script" />
+        </attvalues>
+      </node>
       <node id="https://gerardoesquivia.com/gemini/" label="https://gerardoesquivia.com/gemini/">
         <attvalues>
           <attvalue for="0" value="library" />
@@ -183,92 +218,122 @@
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="https://gerardoesquivia.com/gemini/" target="Caso de uso 1 - https://gerardoesquivia.com/gemini/" id="6">
+      <edge source="cloud/" target="Caso de uso 1 - https://gerardoesquivia.com/google-cloud/" id="6">
         <attvalues>
           <attvalue for="1" value="tiene" />
         </attvalues>
       </edge>
-      <edge source="https://gerardoesquivia.com/gemini/" target="Caso de uso 2 - https://gerardoesquivia.com/gemini/" id="7">
+      <edge source="cloud/" target="Caso de uso 2 - https://gerardoesquivia.com/google-cloud/" id="7">
         <attvalues>
           <attvalue for="1" value="tiene" />
         </attvalues>
       </edge>
-      <edge source="https://gerardoesquivia.com/gemini/" target="Caso de uso 3 - https://gerardoesquivia.com/gemini/" id="8">
+      <edge source="cloud/" target="Caso de uso 3 - https://gerardoesquivia.com/google-cloud/" id="8">
         <attvalues>
           <attvalue for="1" value="tiene" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 1 - https://gerardoesquivia.com/gemini/" target="# Caso de uso 1 - https://gerardoesquivia.com/gemini/&#10;google-genai" id="9">
+      <edge source="Caso de uso 1 - https://gerardoesquivia.com/google-cloud/" target="# Caso de uso 1 - https://gerardoesquivia.com/google-cloud/&#10;BigQuery" id="9">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 2 - https://gerardoesquivia.com/gemini/" target="# Caso de uso 2 - https://gerardoesquivia.com/gemini/&#10;client.interactions.create(...)" id="10">
+      <edge source="Caso de uso 2 - https://gerardoesquivia.com/google-cloud/" target="# Caso de uso 2 - https://gerardoesquivia.com/google-cloud/&#10;# 1. Autenticarse y elegir proyecto&#10;gcloud auth login&#10;gcloud config set project MI_PROYECTO&#10;&#10;# 2. Cloud Storage: crear bucket y subir un archivo&#10;gsutil mb gs://mi-bucket-ejemplo&#10;gsutil cp archivo.txt gs://mi-bucket-ejemplo/" id="10">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 3 - https://gerardoesquivia.com/gemini/" target="# Caso de uso 3 - https://gerardoesquivia.com/gemini/&#10;# pip install -U google-genai&#10;# export GEMINI_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from google import genai&#10;&#10;# 1. Crear el cliente (lee GEMINI_API_KEY).&#10;client = genai.Client()&#10;&#10;# 2. Primera llamada: modelo + entrada (input).&#10;interaction = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works in a few words&quot;&#10;)&#10;&#10;# 3. El texto final estÃ¡ en output_text.&#10;print(interaction.output_text)&#10;&#10;# ---- Streaming: respuesta en tiempo real ----&#10;stream = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works&quot;,&#10;    stream=True&#10;)&#10;for event in stream:&#10;    print(event)   # cada evento = un fragmento (step.delta)" id="11">
+      <edge source="Caso de uso 3 - https://gerardoesquivia.com/google-cloud/" target="# Caso de uso 3 - https://gerardoesquivia.com/google-cloud/&#10;gcloud auth login" id="11">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="https://gerardoesquivia.com/langchain/" target="Caso de uso 1 - https://gerardoesquivia.com/langchain/" id="12">
+      <edge source="https://gerardoesquivia.com/gemini/" target="Caso de uso 1 - https://gerardoesquivia.com/gemini/" id="12">
         <attvalues>
           <attvalue for="1" value="tiene" />
         </attvalues>
       </edge>
-      <edge source="https://gerardoesquivia.com/langchain/" target="Caso de uso 2 - https://gerardoesquivia.com/langchain/" id="13">
+      <edge source="https://gerardoesquivia.com/gemini/" target="Caso de uso 2 - https://gerardoesquivia.com/gemini/" id="13">
         <attvalues>
           <attvalue for="1" value="tiene" />
         </attvalues>
       </edge>
-      <edge source="https://gerardoesquivia.com/langchain/" target="Caso de uso 3 - https://gerardoesquivia.com/langchain/" id="14">
+      <edge source="https://gerardoesquivia.com/gemini/" target="Caso de uso 3 - https://gerardoesquivia.com/gemini/" id="14">
         <attvalues>
           <attvalue for="1" value="tiene" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 1 - https://gerardoesquivia.com/langchain/" target="# Caso de uso 1 - https://gerardoesquivia.com/langchain/&#10;Agente = Modelo + Harness" id="15">
+      <edge source="Caso de uso 1 - https://gerardoesquivia.com/gemini/" target="# Caso de uso 1 - https://gerardoesquivia.com/gemini/&#10;google-genai" id="15">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 2 - https://gerardoesquivia.com/langchain/" target="# Caso de uso 2 - https://gerardoesquivia.com/langchain/&#10;# pip install -U langchain &quot;langchain[google-genai]&quot;&#10;# export GOOGLE_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from langchain.agents import create_agent&#10;&#10;# 1. Herramienta = funciÃ³n Python normal. El docstring es CRÃTICO.&#10;def get_weather(city: str) -&gt; str:&#10;    &quot;&quot;&quot;Get weather for a given city.&quot;&quot;&quot;&#10;    return f&quot;It's always sunny in {city}!&quot;&#10;&#10;# 2. Crear el agente: modelo + herramientas + prompt de sistema.&#10;agent = create_agent(&#10;    model=&quot;google_genai:gemini-2.5-flash-lite&quot;,  # proveedor:modelo&#10;    tools=[get_weather],&#10;    system_prompt=&quot;You are a helpful assistant&quot;,&#10;)&#10;&#10;# 3. Invocar: el mensaje entra como lista de {role, content}.&#10;result = agent.invoke(&#10;    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What's the weather in San Francisco?&quot;}]}&#10;)&#10;&#10;# 4. La respuesta estÃ¡ en el ÃLTIMO mensaje.&#10;print(result[&quot;messages&quot;][-1].content_blocks)" id="16">
+      <edge source="Caso de uso 2 - https://gerardoesquivia.com/gemini/" target="# Caso de uso 2 - https://gerardoesquivia.com/gemini/&#10;client.interactions.create(...)" id="16">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 3 - https://gerardoesquivia.com/langchain/" target="# Caso de uso 3 - https://gerardoesquivia.com/langchain/&#10;city=&quot;San Francisco&quot;" id="17">
+      <edge source="Caso de uso 3 - https://gerardoesquivia.com/gemini/" target="# Caso de uso 3 - https://gerardoesquivia.com/gemini/&#10;# pip install -U google-genai&#10;# export GEMINI_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from google import genai&#10;&#10;# 1. Crear el cliente (lee GEMINI_API_KEY).&#10;client = genai.Client()&#10;&#10;# 2. Primera llamada: modelo + entrada (input).&#10;interaction = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works in a few words&quot;&#10;)&#10;&#10;# 3. El texto final estÃ¡ en output_text.&#10;print(interaction.output_text)&#10;&#10;# ---- Streaming: respuesta en tiempo real ----&#10;stream = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works&quot;,&#10;    stream=True&#10;)&#10;for event in stream:&#10;    print(event)   # cada evento = un fragmento (step.delta)" id="17">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="https://gerardoesquivia.com/postgresql/" target="Caso de uso 1 - https://gerardoesquivia.com/postgresql/" id="18">
+      <edge source="https://gerardoesquivia.com/langchain/" target="Caso de uso 1 - https://gerardoesquivia.com/langchain/" id="18">
         <attvalues>
           <attvalue for="1" value="tiene" />
         </attvalues>
       </edge>
-      <edge source="https://gerardoesquivia.com/postgresql/" target="Caso de uso 2 - https://gerardoesquivia.com/postgresql/" id="19">
+      <edge source="https://gerardoesquivia.com/langchain/" target="Caso de uso 2 - https://gerardoesquivia.com/langchain/" id="19">
         <attvalues>
           <attvalue for="1" value="tiene" />
         </attvalues>
       </edge>
-      <edge source="https://gerardoesquivia.com/postgresql/" target="Caso de uso 3 - https://gerardoesquivia.com/postgresql/" id="20">
+      <edge source="https://gerardoesquivia.com/langchain/" target="Caso de uso 3 - https://gerardoesquivia.com/langchain/" id="20">
         <attvalues>
           <attvalue for="1" value="tiene" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 1 - https://gerardoesquivia.com/postgresql/" target="# Caso de uso 1 - https://gerardoesquivia.com/postgresql/&#10;# Conectar por terminal&#10;psql -h localhost -U usuario -d mi_base&#10;&#10;# SQL: crear tabla + insertar + consultar&#10;CREATE TABLE usuarios (&#10;  id SERIAL PRIMARY KEY,&#10;  nombre TEXT NOT NULL,&#10;  email TEXT UNIQUE&#10;);&#10;&#10;INSERT INTO usuarios (nombre, email) VALUES ('Ana', 'ana@correo.com');&#10;SELECT * FROM usuarios;" id="21">
+      <edge source="Caso de uso 1 - https://gerardoesquivia.com/langchain/" target="# Caso de uso 1 - https://gerardoesquivia.com/langchain/&#10;Agente = Modelo + Harness" id="21">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 2 - https://gerardoesquivia.com/postgresql/" target="# Caso de uso 2 - https://gerardoesquivia.com/postgresql/&#10;CREATE TABLE" id="22">
+      <edge source="Caso de uso 2 - https://gerardoesquivia.com/langchain/" target="# Caso de uso 2 - https://gerardoesquivia.com/langchain/&#10;# pip install -U langchain &quot;langchain[google-genai]&quot;&#10;# export GOOGLE_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from langchain.agents import create_agent&#10;&#10;# 1. Herramienta = funciÃ³n Python normal. El docstring es CRÃTICO.&#10;def get_weather(city: str) -&gt; str:&#10;    &quot;&quot;&quot;Get weather for a given city.&quot;&quot;&quot;&#10;    return f&quot;It's always sunny in {city}!&quot;&#10;&#10;# 2. Crear el agente: modelo + herramientas + prompt de sistema.&#10;agent = create_agent(&#10;    model=&quot;google_genai:gemini-2.5-flash-lite&quot;,  # proveedor:modelo&#10;    tools=[get_weather],&#10;    system_prompt=&quot;You are a helpful assistant&quot;,&#10;)&#10;&#10;# 3. Invocar: el mensaje entra como lista de {role, content}.&#10;result = agent.invoke(&#10;    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What's the weather in San Francisco?&quot;}]}&#10;)&#10;&#10;# 4. La respuesta estÃ¡ en el ÃLTIMO mensaje.&#10;print(result[&quot;messages&quot;][-1].content_blocks)" id="22">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 3 - https://gerardoesquivia.com/postgresql/" target="# Caso de uso 3 - https://gerardoesquivia.com/postgresql/&#10;\d tabla" id="23">
+      <edge source="Caso de uso 3 - https://gerardoesquivia.com/langchain/" target="# Caso de uso 3 - https://gerardoesquivia.com/langchain/&#10;city=&quot;San Francisco&quot;" id="23">
+        <attvalues>
+          <attvalue for="1" value="ejemplificado_por" />
+        </attvalues>
+      </edge>
+      <edge source="https://gerardoesquivia.com/postgresql/" target="Caso de uso 1 - https://gerardoesquivia.com/postgresql/" id="24">
+        <attvalues>
+          <attvalue for="1" value="tiene" />
+        </attvalues>
+      </edge>
+      <edge source="https://gerardoesquivia.com/postgresql/" target="Caso de uso 2 - https://gerardoesquivia.com/postgresql/" id="25">
+        <attvalues>
+          <attvalue for="1" value="tiene" />
+        </attvalues>
+      </edge>
+      <edge source="https://gerardoesquivia.com/postgresql/" target="Caso de uso 3 - https://gerardoesquivia.com/postgresql/" id="26">
+        <attvalues>
+          <attvalue for="1" value="tiene" />
+        </attvalues>
+      </edge>
+      <edge source="Caso de uso 1 - https://gerardoesquivia.com/postgresql/" target="# Caso de uso 1 - https://gerardoesquivia.com/postgresql/&#10;# Conectar por terminal&#10;psql -h localhost -U usuario -d mi_base&#10;&#10;# SQL: crear tabla + insertar + consultar&#10;CREATE TABLE usuarios (&#10;  id SERIAL PRIMARY KEY,&#10;  nombre TEXT NOT NULL,&#10;  email TEXT UNIQUE&#10;);&#10;&#10;INSERT INTO usuarios (nombre, email) VALUES ('Ana', 'ana@correo.com');&#10;SELECT * FROM usuarios;" id="27">
+        <attvalues>
+          <attvalue for="1" value="ejemplificado_por" />
+        </attvalues>
+      </edge>
+      <edge source="Caso de uso 2 - https://gerardoesquivia.com/postgresql/" target="# Caso de uso 2 - https://gerardoesquivia.com/postgresql/&#10;CREATE TABLE" id="28">
+        <attvalues>
+          <attvalue for="1" value="ejemplificado_por" />
+        </attvalues>
+      </edge>
+      <edge source="Caso de uso 3 - https://gerardoesquivia.com/postgresql/" target="# Caso de uso 3 - https://gerardoesquivia.com/postgresql/&#10;\d tabla" id="29">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>

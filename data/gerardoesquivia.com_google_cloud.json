@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "url": "https://gerardoesquivia.com/google-cloud/",
+    "fetched_at": "2026-09-05T08:43:41",
+    "count": 19
+  },
+  "blocks": [
+    {
+      "code": "BigQuery",
+      "source": "pre/code",
+      "context": "p"
+    },
+    {
+      "code": "# 1. Autenticarse y elegir proyecto\ngcloud auth login\ngcloud config set project MI_PROYECTO\n\n# 2. Cloud Storage: crear bucket y subir un archivo\ngsutil mb gs://mi-bucket-ejemplo\ngsutil cp archivo.txt gs://mi-bucket-ejemplo/",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "gcloud auth login",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "gcloud config set project",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "gsutil mb",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "gsutil cp",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "# SQL directo (consola / bq query)\nSELECT nombre, COUNT(*) AS total\nFROM `proyecto.dataset.tabla`\nGROUP BY nombre;",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "# Desde Python\n# pip install google-cloud-bigquery\nfrom google.cloud import bigquery\nclient = bigquery.Client()\nfor row in client.query(\"SELECT 1 AS x\").result():\n    print(row.x)",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "proyecto.dataset.tabla",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "google-cloud-bigquery",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "config set project",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "gsutil mb / cp",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "SELECT ... FROM `p.d.t`",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "C:\\Users\\TUF\\Documents\\librerÃ­as\\local\\",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "pip install google-cloud-bigquery google-cloud-storage",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "https://cloud.google.com/docs",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "---\ntype: Resumen\ntitle: \"âï¸ Google Cloud â Nube (Resumen minimalista)\"\ndescription: \"Resumen minimalista de Google Cloud: gcloud + Cloud Storage y BigQuery (SQL serverless + Python), con scripts listos para implementar.\"\nfuente: \"https://cloud.google.com/docs\"\nsitio: \"https://gerardoesquivia.com/google-cloud/\"\ntags: [resumen, google-cloud, gcp, bigquery, okf]\ntimestamp: 2026-08-29\ncreator: \"Gerardo Esquivia Zapata\"\n---\n\n# âï¸ Google Cloud â Resumen (para OKF)\n\n> **Para quÃ©:** operar la nube de Google (almacenamiento y anÃ¡lisis de datos) con la CLI y SQL serverless.\n> **CÃ³mo:** `gcloud auth login` + `gcloud config set project`; `gsutil mb/cp` para buckets; `SELECT ... FROM \\`p.d.t\\`` para BigQuery; SDK `google-cloud-bigquery` en Python.\n\n## ð ï¸ Scripts minimalistas\n```bash\ngcloud auth login\ngcloud config set project MI_PROYECTO\ngsutil mb gs://mi-bucket-ejemplo\ngsutil cp archivo.txt gs://mi-bucket-ejemplo/\n```\n```sql\nSELECT nombre, COUNT(*) AS total FROM `proyecto.dataset.tabla` GROUP BY nombre;\n```\n```python\n# pip install google-cloud-bigquery\nfrom google.cloud import bigquery\nclient = bigquery.Client()\nfor row in client.query(\"SELECT 1 AS x\").result():\n    print(row.x)\n```\n\n## ð Conceptos clave\n| Concepto | QuÃ© es |\n|---|---|\n| `gcloud` / `gsutil` / `bq` | CLIs: auth, storage, BigQuery |\n| `proyecto.dataset.tabla` | Tabla completa de BigQuery |\n| Cloud Storage | Buckets de objetos |\n| `google-cloud-bigquery` | SDK Python |\n\n## ð Fuente\nhttps://cloud.google.com/docs Â· Sitio: https://gerardoesquivia.com/google-cloud/\n\n## ð¥ CÃ³mo agregar esto a tu OKF (para el agente)\n1. Guarda este archivo en tu vault (ej. `ð Proyectos/`).\n2. El frontmatter ya es OKF: no modifiques `type` ni `creator`.\n3. Implementa directo: copia los comandos y ajusta proyecto/bucket. No necesitas investigar mÃ¡s.",
+      "source": "inline_script",
+      "context": "script"
+    },
+    {
+      "code": "function descargarMD(){const md=document.getElementById('md-resumen').textContent.trim();const b=new Blob([md],{type:'text/markdown;charset=utf-8'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='resumen-google-cloud.md';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(u);}",
+      "source": "inline_script",
+      "context": "script"
+    },
+    {
+      "code": "(function(){const nodes=[{id:\"cli\",label:\"gcloud\",sub:\"auth\",x:120,y:210},{id:\"gcp\",label:\"Google Cloud\",sub:\"servicios\",x:390,y:210},{id:\"svc\",label:\"Servicio\",sub:\"Storage / BigQuery\",x:640,y:210},{id:\"res\",label:\"Dato\",sub:\"bucket / filas\",x:860,y:210}];const edges=[{from:\"cli\",to:\"gcp\",label:\"auth\"},{from:\"gcp\",to:\"svc\",label:\"API\"},{from:\"svc\",to:\"gcp\",label:\"respuesta\"},{from:\"gcp\",to:\"res\",label:\"dato\"},{from:\"res\",to:\"cli\",label:\"resultado\"}];const pos=Object.fromEntries(nodes.map(n=>[n.id,{x:n.x,y:n.y}]));const svg=document.getElementById(\"grafo\");const NS=\"http://www.w3.org/2000/svg\";function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}const edgePaths=[],edgeArrows=[];\nedges.forEach((ed)=>{const a=pos[ed.from],b=pos[ed.to];let d,mid;if(ed.from===\"res\"){d=`M ${a.x} ${a.y} C ${(a.x+b.x)/2} 400, ${(a.x+b.x)/2} 400, ${b.x} ${b.y}`;mid={x:(a.x+b.x)/2,y:380};}else{const mx=(a.x+b.x)/2;d=`M ${a.x} ${a.y} C ${mx} ${a.y}, ${mx} ${b.y}, ${b.x} ${b.y}`;mid={x:mx,y:(a.y+b.y)/2};}const p=el(\"path\",{class:\"edge\",d});svg.appendChild(p);edgePaths.push(p);const ang=Math.atan2(b.y-mid.y,b.x-mid.x);const tx=b.x-18*Math.cos(ang),ty=b.y-18*Math.sin(ang);const ar=el(\"path\",{class:\"arrow\",d:`M ${tx} ${ty} l 8 -4 l -8 -4 z`,transform:`rotate(${ang*180/Math.PI} ${tx} ${ty})`});svg.appendChild(ar);edgeArrows.push(ar);});\nconst nodeGroups={};nodes.forEach(n=>{const g=el(\"g\",{class:\"node\"});g.appendChild(el(\"rect\",{x:n.x-85,y:n.y-29,width:170,height:58}));const t=el(\"text\",{class:\"t\",x:n.x,y:n.y-4,\"text-anchor\":\"middle\"});t.textContent=n.label;const s=el(\"text\",{class:\"s\",x:n.x,y:n.y+16,\"text-anchor\":\"middle\"});s.textContent=n.sub;g.appendChild(t);g.appendChild(s);svg.appendChild(g);nodeGroups[n.id]=g;});\nconst travel=el(\"circle\",{class:\"travel\",r:6,opacity:0});svg.appendChild(travel);const caption=document.getElementById(\"caption\");const N=edges.length;let i=0,raf=null;\nfunction clearActive(){nodes.forEach(n=>nodeGroups[n.id].classList.remove(\"active\"));edgePaths.forEach(p=>p.classList.remove(\"active\"));edgeArrows.forEach(a=>a.classList.remove(\"active\"));}\nfunction animateEdge(idx){const ed=edges[idx];clearActive();edgePaths[idx].classList.add(\"active\");edgeArrows[idx].classList.add(\"active\");nodeGroups[ed.from].classList.add(\"active\");caption.innerHTML=`Paso ${idx+1}/${N}: <b>${ed.from}</b> â <b>${ed.to}</b> (${ed.label})`;const path=edgePaths[idx],len=path.getTotalLength();const t0=performance.now(),dur=800;function step(now){let p=(now-t0)/dur;if(p>1)p=1;const pt=path.getPointAtLength(p*len);travel.setAttribute(\"cx\",pt.x);travel.setAttribute(\"cy\",pt.y);travel.setAttribute(\"opacity\",1);if(p<1)raf=requestAnimationFrame(step);else{nodeGroups[ed.to].classList.add(\"active\");i=(i+1)%N;setTimeout(()=>animateEdge(i),300);}}raf=requestAnimationFrame(step);}\nfunction start(){cancelAnimationFrame(raf);i=0;animateEdge(0);}svg.addEventListener(\"click\",start);start();\n})();",
+      "source": "inline_script",
+      "context": "script"
+    }
+  ]
+}

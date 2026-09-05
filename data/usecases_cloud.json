@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Caso de uso 1 - https://gerardoesquivia.com/google-cloud/",
+    "description": "Ejemplo básico para entender la funcionalidad.",
+    "lang": "unknown",
+    "script": "# Caso de uso 1 - https://gerardoesquivia.com/google-cloud/\nBigQuery\n"
+  },
+  {
+    "title": "Caso de uso 2 - https://gerardoesquivia.com/google-cloud/",
+    "description": "Integración con una API o flujo externo.",
+    "lang": "unknown",
+    "script": "# Caso de uso 2 - https://gerardoesquivia.com/google-cloud/\n# 1. Autenticarse y elegir proyecto\ngcloud auth login\ngcloud config set project MI_PROYECTO\n\n# 2. Cloud Storage: crear bucket y subir un archivo\ngsutil mb gs://mi-bucket-ejemplo\ngsutil cp archivo.txt gs://mi-bucket-ejemplo/\n"
+  },
+  {
+    "title": "Caso de uso 3 - https://gerardoesquivia.com/google-cloud/",
+    "description": "Automatización o pipeline de uso práctico.",
+    "lang": "unknown",
+    "script": "# Caso de uso 3 - https://gerardoesquivia.com/google-cloud/\ngcloud auth login\n"
+  }
+]
