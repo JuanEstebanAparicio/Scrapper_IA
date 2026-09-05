@@ -116,6 +116,41 @@
           <attvalue for="0" value="script" />
         </attvalues>
       </node>
+      <node id="https://gerardoesquivia.com/postgresql/" label="https://gerardoesquivia.com/postgresql/">
+        <attvalues>
+          <attvalue for="0" value="library" />
+        </attvalues>
+      </node>
+      <node id="Caso de uso 1 - https://gerardoesquivia.com/postgresql/" label="Caso de uso 1 - https://gerardoesquivia.com/postgresql/">
+        <attvalues>
+          <attvalue for="0" value="usecase" />
+        </attvalues>
+      </node>
+      <node id="# Caso de uso 1 - https://gerardoesquivia.com/postgresql/&#10;# Conectar por terminal&#10;psql -h localhost -U usuario -d mi_base&#10;&#10;# SQL: crear tabla + insertar + consultar&#10;CREATE TABLE usuarios (&#10;  id SERIAL PRIMARY KEY,&#10;  nombre TEXT NOT NULL,&#10;  email TEXT UNIQUE&#10;);&#10;&#10;INSERT INTO usuarios (nombre, email) VALUES ('Ana', 'ana@correo.com');&#10;SELECT * FROM usuarios;" label="# Caso de uso 1 - https://gerardoesquivia.com/postgresql/&#10;# Conectar por terminal&#10;psql -h localhost -U usuario -d mi_base&#10;&#10;# SQL: crear tabla + insertar + consultar&#10;CREATE TABLE usuarios (&#10;  id SERIAL PRIMARY KEY,&#10;  nombre TEXT NOT NULL,&#10;  email TEXT UNIQUE&#10;);&#10;&#10;INSERT INTO usuarios (nombre, email) VALUES ('Ana', 'ana@correo.com');&#10;SELECT * FROM usuarios;">
+        <attvalues>
+          <attvalue for="0" value="script" />
+        </attvalues>
+      </node>
+      <node id="Caso de uso 2 - https://gerardoesquivia.com/postgresql/" label="Caso de uso 2 - https://gerardoesquivia.com/postgresql/">
+        <attvalues>
+          <attvalue for="0" value="usecase" />
+        </attvalues>
+      </node>
+      <node id="# Caso de uso 2 - https://gerardoesquivia.com/postgresql/&#10;CREATE TABLE" label="# Caso de uso 2 - https://gerardoesquivia.com/postgresql/&#10;CREATE TABLE">
+        <attvalues>
+          <attvalue for="0" value="script" />
+        </attvalues>
+      </node>
+      <node id="Caso de uso 3 - https://gerardoesquivia.com/postgresql/" label="Caso de uso 3 - https://gerardoesquivia.com/postgresql/">
+        <attvalues>
+          <attvalue for="0" value="usecase" />
+        </attvalues>
+      </node>
+      <node id="# Caso de uso 3 - https://gerardoesquivia.com/postgresql/&#10;\d tabla" label="# Caso de uso 3 - https://gerardoesquivia.com/postgresql/&#10;\d tabla">
+        <attvalues>
+          <attvalue for="0" value="script" />
+        </attvalues>
+      </node>
     </nodes>
     <edges>
       <edge source="https://gerardoesquivia.com/animejs/" target="Caso de uso 1 - https://gerardoesquivia.com/animejs/" id="0">
@@ -204,6 +239,36 @@
         </attvalues>
       </edge>
       <edge source="Caso de uso 3 - https://gerardoesquivia.com/langchain/" target="# Caso de uso 3 - https://gerardoesquivia.com/langchain/&#10;city=&quot;San Francisco&quot;" id="17">
+        <attvalues>
+          <attvalue for="1" value="ejemplificado_por" />
+        </attvalues>
+      </edge>
+      <edge source="https://gerardoesquivia.com/postgresql/" target="Caso de uso 1 - https://gerardoesquivia.com/postgresql/" id="18">
+        <attvalues>
+          <attvalue for="1" value="tiene" />
+        </attvalues>
+      </edge>
+      <edge source="https://gerardoesquivia.com/postgresql/" target="Caso de uso 2 - https://gerardoesquivia.com/postgresql/" id="19">
+        <attvalues>
+          <attvalue for="1" value="tiene" />
+        </attvalues>
+      </edge>
+      <edge source="https://gerardoesquivia.com/postgresql/" target="Caso de uso 3 - https://gerardoesquivia.com/postgresql/" id="20">
+        <attvalues>
+          <attvalue for="1" value="tiene" />
+        </attvalues>
+      </edge>
+      <edge source="Caso de uso 1 - https://gerardoesquivia.com/postgresql/" target="# Caso de uso 1 - https://gerardoesquivia.com/postgresql/&#10;# Conectar por terminal&#10;psql -h localhost -U usuario -d mi_base&#10;&#10;# SQL: crear tabla + insertar + consultar&#10;CREATE TABLE usuarios (&#10;  id SERIAL PRIMARY KEY,&#10;  nombre TEXT NOT NULL,&#10;  email TEXT UNIQUE&#10;);&#10;&#10;INSERT INTO usuarios (nombre, email) VALUES ('Ana', 'ana@correo.com');&#10;SELECT * FROM usuarios;" id="21">
+        <attvalues>
+          <attvalue for="1" value="ejemplificado_por" />
+        </attvalues>
+      </edge>
+      <edge source="Caso de uso 2 - https://gerardoesquivia.com/postgresql/" target="# Caso de uso 2 - https://gerardoesquivia.com/postgresql/&#10;CREATE TABLE" id="22">
+        <attvalues>
+          <attvalue for="1" value="ejemplificado_por" />
+        </attvalues>
+      </edge>
+      <edge source="Caso de uso 3 - https://gerardoesquivia.com/postgresql/" target="# Caso de uso 3 - https://gerardoesquivia.com/postgresql/&#10;\d tabla" id="23">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>

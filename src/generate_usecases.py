@@ -59,6 +59,23 @@ def generate(usecase_count=3, source_file=None, lib_name=None):
         json.dump(usecases, f, ensure_ascii=False, indent=2)
     print(f"Generados {len(usecases)} casos en {OUT}")
 
+    # === Actualizar libraries.json automáticamente ===
+    libraries_file = DATA_DIR / "libraries.json"
+    libraries = []
+    if libraries_file.exists():
+        try:
+            libraries = json.load(open(libraries_file, encoding="utf-8"))
+        except Exception:
+            libraries = []
+
+    # Evitar duplicados
+    if OUT.name not in libraries:
+        libraries.append(OUT.name)
+
+    with open(libraries_file, "w", encoding="utf-8") as f:
+        json.dump(libraries, f, ensure_ascii=False, indent=2)
+    print(f"Librerías actualizadas en {libraries_file}")
+
 if __name__ == "__main__":
     src = sys.argv[1] if len(sys.argv) > 1 else None
     generate(source_file=src)

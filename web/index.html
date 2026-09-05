@@ -83,9 +83,6 @@
   <div class="selector">
     <select id="librarySelect">
       <option value="">-- Selecciona una librería --</option>
-      <option value="usecases_animejs.json">Anime.js</option>
-      <option value="usecases_langchain.json">LangChain</option>
-      <option value="usecases_gemini.json">Gemini</option>
     </select>
   </div>
 
@@ -95,11 +92,25 @@
     const select = document.getElementById('librarySelect');
     const container = document.getElementById('content');
 
-    select.addEventListener('change', async () => {
-      container.innerHTML = 'Cargando...';
-      if (!select.value) return;
+    async function loadLibraries() {
       try {
-        const resp = await fetch('../data/' + select.value);
+        const resp = await fetch('../data/libraries.json');
+        const libs = await resp.json();
+        libs.forEach(lib => {
+          const opt = document.createElement('option');
+          opt.value = lib;
+          opt.textContent = lib.replace('usecases_', '').replace('.json','');
+          select.appendChild(opt);
+        });
+      } catch (e) {
+        console.error("No se pudo cargar libraries.json", e);
+      }
+    }
+
+    async function loadUsecases(file) {
+      container.innerHTML = 'Cargando...';
+      try {
+        const resp = await fetch('../data/' + file);
         const usecases = await resp.json();
         container.innerHTML = '';
         usecases.forEach((u, i) => {
@@ -113,8 +124,12 @@
           container.appendChild(div);
         });
       } catch (e) {
-        container.innerText = 'No se pudo cargar ' + select.value;
+        container.innerText = 'No se pudo cargar ' + file;
       }
+    }
+
+    select.addEventListener('change', e => {
+      if (e.target.value) loadUsecases(e.target.value);
     });
 
     function copyCode(id) {
@@ -135,6 +150,8 @@
       a.remove();
       URL.revokeObjectURL(url);
     }
+
+    loadLibraries();
   </script>
 </body>
 </html>

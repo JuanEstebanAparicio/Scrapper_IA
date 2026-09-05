@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "url": "https://gerardoesquivia.com/postgresql/",
+    "fetched_at": "2026-09-05T08:33:08",
+    "count": 17
+  },
+  "blocks": [
+    {
+      "code": "# Conectar por terminal\npsql -h localhost -U usuario -d mi_base\n\n# SQL: crear tabla + insertar + consultar\nCREATE TABLE usuarios (\n  id SERIAL PRIMARY KEY,\n  nombre TEXT NOT NULL,\n  email TEXT UNIQUE\n);\n\nINSERT INTO usuarios (nombre, email) VALUES ('Ana', 'ana@correo.com');\nSELECT * FROM usuarios;",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "CREATE TABLE",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "\\d tabla",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "CREATE INDEX",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "# pip install psycopg[binary]\nimport psycopg\n\nwith psycopg.connect(\"dbname=mi_base user=usuario host=localhost\") as conn:\n    with conn.cursor() as cur:\n        cur.execute(\"SELECT * FROM usuarios\")\n        for row in cur.fetchall():\n            print(row)",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "psycopg.connect(dsn)",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "conn.cursor()",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "cur.fetchall()",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "psql -h host -U user -d db",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "CREATE TABLE / INSERT / SELECT",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "SERIAL Â· TEXT Â· INTEGER Â· JSONB",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "C:\\Users\\TUF\\Documents\\librerÃ­as\\local\\",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "pip install psycopg[binary]",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "https://www.postgresql.org/docs/",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "---\ntype: Resumen\ntitle: \"ð PostgreSQL â Base de datos relacional (Resumen minimalista)\"\ndescription: \"Resumen minimalista de PostgreSQL: psql + SQL y Python/psycopg, con scripts listos para implementar.\"\nfuente: \"https://www.postgresql.org/docs/\"\nsitio: \"https://gerardoesquivia.com/postgresql/\"\ntags: [resumen, postgresql, sql, bases-datos, okf]\ntimestamp: 2026-08-29\ncreator: \"Gerardo Esquivia Zapata\"\n---\n\n# ð PostgreSQL â Resumen (para OKF)\n\n> **Para quÃ©:** guardar y consultar datos relacionales (ACID, JSONB) en un RDBMS open source.\n> **CÃ³mo:** conectar con `psql -h host -U user -d db`; `CREATE TABLE` / `INSERT` / `SELECT`; desde Python con `psycopg`.\n\n## ð ï¸ Scripts minimalistas\n```bash\npsql -h localhost -U usuario -d mi_base\n```\n```sql\nCREATE TABLE usuarios (id SERIAL PRIMARY KEY, nombre TEXT NOT NULL, email TEXT UNIQUE);\nINSERT INTO usuarios (nombre, email) VALUES ('Ana', 'ana@correo.com');\nSELECT * FROM usuarios;\n```\n```python\n# pip install psycopg[binary]\nimport psycopg\nwith psycopg.connect(\"dbname=mi_base user=usuario host=localhost\") as conn:\n    with conn.cursor() as cur:\n        cur.execute(\"SELECT * FROM usuarios\")\n        print(cur.fetchall())\n```\n\n## ð Conceptos clave\n| Concepto | QuÃ© es |\n|---|---|\n| `psql` | Cliente por terminal (`\\d` describe tablas) |\n| `SERIAL` Â· `TEXT` Â· `JSONB` | Autoincremento y tipos |\n| `CREATE INDEX` Â· `pg_dump` | Rendimiento y respaldo |\n| `psycopg` | Driver Python recomendado |\n\n## ð Fuente\nhttps://www.postgresql.org/docs/ Â· Sitio: https://gerardoesquivia.com/postgresql/\n\n## ð¥ CÃ³mo agregar esto a tu OKF (para el agente)\n1. Guarda este archivo en tu vault (ej. `ð Proyectos/`).\n2. El frontmatter ya es OKF: no modifiques `type` ni `creator`.\n3. Implementa directo: copia los scripts y ajusta credenciales/nombres. No necesitas investigar mÃ¡s.",
+      "source": "inline_script",
+      "context": "script"
+    },
+    {
+      "code": "function descargarMD(){const md=document.getElementById('md-resumen').textContent.trim();const b=new Blob([md],{type:'text/markdown;charset=utf-8'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='resumen-postgresql.md';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(u);}",
+      "source": "inline_script",
+      "context": "script"
+    },
+    {
+      "code": "(function(){const nodes=[{id:\"cli\",label:\"psql / Python\",sub:\"cliente\",x:120,y:210},{id:\"srv\",label:\"Servidor PG\",sub:\"postgres\",x:390,y:210},{id:\"tbl\",label:\"Tabla\",sub:\"usuarios\",x:640,y:210},{id:\"res\",label:\"Resultado\",sub:\"filas\",x:860,y:210}];const edges=[{from:\"cli\",to:\"srv\",label:\"conexiÃ³n\"},{from:\"srv\",to:\"tbl\",label:\"SQL\"},{from:\"tbl\",to:\"srv\",label:\"filas\"},{from:\"srv\",to:\"res\",label:\"respuesta\"},{from:\"res\",to:\"cli\",label:\"fetchall\"}];const pos=Object.fromEntries(nodes.map(n=>[n.id,{x:n.x,y:n.y}]));const svg=document.getElementById(\"grafo\");const NS=\"http://www.w3.org/2000/svg\";function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}const edgePaths=[],edgeArrows=[];\nedges.forEach((ed)=>{const a=pos[ed.from],b=pos[ed.to];let d,mid;if(ed.from===\"res\"){d=`M ${a.x} ${a.y} C ${(a.x+b.x)/2} 400, ${(a.x+b.x)/2} 400, ${b.x} ${b.y}`;mid={x:(a.x+b.x)/2,y:380};}else{const mx=(a.x+b.x)/2;d=`M ${a.x} ${a.y} C ${mx} ${a.y}, ${mx} ${b.y}, ${b.x} ${b.y}`;mid={x:mx,y:(a.y+b.y)/2};}const p=el(\"path\",{class:\"edge\",d});svg.appendChild(p);edgePaths.push(p);const ang=Math.atan2(b.y-mid.y,b.x-mid.x);const tx=b.x-18*Math.cos(ang),ty=b.y-18*Math.sin(ang);const ar=el(\"path\",{class:\"arrow\",d:`M ${tx} ${ty} l 8 -4 l -8 -4 z`,transform:`rotate(${ang*180/Math.PI} ${tx} ${ty})`});svg.appendChild(ar);edgeArrows.push(ar);});\nconst nodeGroups={};nodes.forEach(n=>{const g=el(\"g\",{class:\"node\"});g.appendChild(el(\"rect\",{x:n.x-85,y:n.y-29,width:170,height:58}));const t=el(\"text\",{class:\"t\",x:n.x,y:n.y-4,\"text-anchor\":\"middle\"});t.textContent=n.label;const s=el(\"text\",{class:\"s\",x:n.x,y:n.y+16,\"text-anchor\":\"middle\"});s.textContent=n.sub;g.appendChild(t);g.appendChild(s);svg.appendChild(g);nodeGroups[n.id]=g;});\nconst travel=el(\"circle\",{class:\"travel\",r:6,opacity:0});svg.appendChild(travel);const caption=document.getElementById(\"caption\");const N=edges.length;let i=0,raf=null;\nfunction clearActive(){nodes.forEach(n=>nodeGroups[n.id].classList.remove(\"active\"));edgePaths.forEach(p=>p.classList.remove(\"active\"));edgeArrows.forEach(a=>a.classList.remove(\"active\"));}\nfunction animateEdge(idx){const ed=edges[idx];clearActive();edgePaths[idx].classList.add(\"active\");edgeArrows[idx].classList.add(\"active\");nodeGroups[ed.from].classList.add(\"active\");caption.innerHTML=`Paso ${idx+1}/${N}: <b>${ed.from}</b> â <b>${ed.to}</b> (${ed.label})`;const path=edgePaths[idx],len=path.getTotalLength();const t0=performance.now(),dur=800;function step(now){let p=(now-t0)/dur;if(p>1)p=1;const pt=path.getPointAtLength(p*len);travel.setAttribute(\"cx\",pt.x);travel.setAttribute(\"cy\",pt.y);travel.setAttribute(\"opacity\",1);if(p<1)raf=requestAnimationFrame(step);else{nodeGroups[ed.to].classList.add(\"active\");i=(i+1)%N;setTimeout(()=>animateEdge(i),300);}}raf=requestAnimationFrame(step);}\nfunction start(){cancelAnimationFrame(raf);i=0;animateEdge(0);}svg.addEventListener(\"click\",start);start();\n})();",
+      "source": "inline_script",
+      "context": "script"
+    }
+  ]
+}
