@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "url": "https://gerardoesquivia.com/langchain/",
+    "fetched_at": "2026-09-05T07:48:42",
+    "count": 24
+  },
+  "blocks": [
+    {
+      "code": "Agente = Modelo + Harness",
+      "source": "pre/code",
+      "context": "p"
+    },
+    {
+      "code": "# pip install -U langchain \"langchain[google-genai]\"\n# export GOOGLE_API_KEY=\"tu-api-key\"\n\nfrom langchain.agents import create_agent\n\n# 1. Herramienta = funciÃ³n Python normal. El docstring es CRÃTICO.\ndef get_weather(city: str) -> str:\n    \"\"\"Get weather for a given city.\"\"\"\n    return f\"It's always sunny in {city}!\"\n\n# 2. Crear el agente: modelo + herramientas + prompt de sistema.\nagent = create_agent(\n    model=\"google_genai:gemini-2.5-flash-lite\",  # proveedor:modelo\n    tools=[get_weather],\n    system_prompt=\"You are a helpful assistant\",\n)\n\n# 3. Invocar: el mensaje entra como lista de {role, content}.\nresult = agent.invoke(\n    {\"messages\": [{\"role\": \"user\", \"content\": \"What's the weather in San Francisco?\"}]}\n)\n\n# 4. La respuesta estÃ¡ en el ÃLTIMO mensaje.\nprint(result[\"messages\"][-1].content_blocks)",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "city=\"San Francisco\"",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "get_weather(...)",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "result[\"messages\"][-1].content_blocks",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "\"openai:gpt-5.5\"",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "\"claude-sonnet-4-6\"",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "\"ollama:devstral-2\"",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "init_chat_model",
+      "source": "pre/code",
+      "context": "p"
+    },
+    {
+      "code": "checkpointer",
+      "source": "pre/code",
+      "context": "p"
+    },
+    {
+      "code": "import urllib.error\nimport urllib.request\n\nfrom langchain.agents import create_agent\nfrom langchain.chat_models import init_chat_model\nfrom langchain.tools import tool\nfrom langgraph.checkpoint.memory import InMemorySaver\n\n# 1. Prompt de sistema: rol + quÃ© herramienta usar.\nSYSTEM_PROMPT = \"\"\"You are a literary data assistant.\n- fetch_text_from_url: loads document text from a URL.\nDo not guess â ground answers in tool results.\"\"\"\n\n# 2. Herramienta con @tool (el decorador aÃ±ade metadata).\n@tool\ndef fetch_text_from_url(url: str) -> str:\n    \"\"\"Fetch the document from a URL.\"\"\"\n    req = urllib.request.Request(url, headers={\"User-Agent\": \"Mozilla/5.0\"})\n    try:\n        with urllib.request.urlopen(req, timeout=120) as resp:\n            return resp.read().decode(\"utf-8\", errors=\"replace\")\n    except urllib.error.URLError as e:\n        return f\"Fetch failed: {e}\"\n\n# 3. Modelo configurado (proveedor + parÃ¡metros).\nmodel = init_chat_model(\n    \"gemini-3.1-pro-preview\",\n    model_provider=\"google-genai\",\n    temperature=0.5,\n)\n\n# 4. Memoria (en producciÃ³n usar un checkpointer persistente).\ncheckpointer = InMemorySaver()\n\n# 5. Ensamblar y ejecutar.\nagent = create_agent(\n    model=model,\n    tools=[fetch_text_from_url],\n    system_prompt=SYSTEM_PROMPT,\n    checkpointer=checkpointer,\n)\n\nresult = agent.invoke(\n    {\"messages\": [{\"role\": \"user\", \"content\": \"Resume: https://www.gutenberg.org/files/64317/64317-0.txt\"}]},\n    config={\"configurable\": {\"thread_id\": \"mi-hilo-1\"}},  # memoria por hilo\n)\n\nprint(result[\"messages\"][-1].content_blocks)",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "temperature",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "max_tokens",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "streaming",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "thread_id",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "configurable.thread_id",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "create_agent",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "model=\"proveedor:modelo\"",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "C:\\Users\\TUF\\Documents\\librerÃ­as\\local\\",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "pip install -U langchain \"langchain[google-genai]\"",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "https://docs.langchain.com/",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "(function () {\n  const nodes = [\n    { id: \"user\",  label: \"Usuario\",     sub: \"mensaje\", x: 70,  y: 210 },\n    { id: \"agent\", label: \"Agente\",      sub: \"create_agent\", x: 260, y: 90 },\n    { id: \"model\", label: \"Modelo\",      sub: \"LLM\", x: 520, y: 90 },\n    { id: \"tool\",  label: \"Herramienta\", sub: \"tools\", x: 520, y: 330 },\n    { id: \"resp\",  label: \"Respuesta\",   sub: \"content_blocks\", x: 800, y: 210 },\n  ];\n  const edges = [\n    { from: \"user\",  to: \"agent\", label: \"invoke(messages)\", loop: false },\n    { from: \"agent\", to: \"model\", label: \"razona\", loop: false },\n    { from: \"model\", to: \"tool\",  label: \"tool call\", loop: true },\n    { from: \"tool\",  to: \"model\", label: \"resultado\", loop: true },\n    { from: \"model\", to: \"resp\",  label: \"respuesta\", loop: false },\n    { from: \"resp\",  to: \"user\",  label: \"devuelve\", loop: false },\n  ];\n  const pos = Object.fromEntries(nodes.map(n => [n.id, { x: n.x, y: n.y }]));\n  const svg = document.getElementById(\"grafo\");\n  const NS = \"http://www.w3.org/2000/svg\";\n  function el(tag, attrs) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; }\n\n  const edgePaths = [], edgeArrows = [], edgeGeom = [];\n  edges.forEach((ed) => {\n    const a = pos[ed.from], b = pos[ed.to];\n    let d, mid;\n    if (ed.loop) {\n      const dir = ed.from === \"model\" ? 1 : -1;\n      const cx = 520 + dir * 150, cy = (a.y + b.y) / 2;\n      d = `M ${a.x} ${a.y} C ${cx} ${a.y}, ${cx} ${b.y}, ${b.x} ${b.y}`;\n      mid = { x: cx, y: cy };\n    } else if (ed.from === \"resp\") {\n      d = `M ${a.x} ${a.y} C ${(a.x+b.x)/2} 420, ${(a.x+b.x)/2} 420, ${b.x} ${b.y}`;\n      mid = { x: (a.x + b.x) / 2, y: 390 };\n    } else {\n      const dx = Math.abs(b.x - a.x), dy = Math.abs(b.y - a.y);\n      if (dy > dx) {\n        const my = (a.y + b.y) / 2;\n        d = `M ${a.x} ${a.y} C ${a.x} ${my}, ${b.x} ${my}, ${b.x} ${b.y}`;\n        mid = { x: (a.x + b.x) / 2, y: my };\n      } else {\n        const mx = (a.x + b.x) / 2;\n        d = `M ${a.x} ${a.y} C ${mx} ${a.y}, ${mx} ${b.y}, ${b.x} ${b.y}`;\n        mid = { x: mx, y: (a.y + b.y) / 2 };\n      }\n    }\n    const path = el(\"path\", { class: \"edge\", d });\n    svg.appendChild(path); edgePaths.push(path);\n    const ang = Math.atan2(b.y - mid.y, b.x - mid.x);\n    const tx = b.x - 18 * Math.cos(ang), ty = b.y - 18 * Math.sin(ang);\n    const arrow = el(\"path\", { class: \"arrow\", d: `M ${tx} ${ty} l 8 ${-4} l -8 ${-4} z`, transform: `rotate(${ang*180/Math.PI} ${tx} ${ty})` });\n    svg.appendChild(arrow); edgeArrows.push(arrow);\n    edgeGeom.push({ a, b });\n  });\n\n  const nodeGroups = {};\n  nodes.forEach(n => {\n    const g = el(\"g\", { class: \"node\" });\n    g.appendChild(el(\"rect\", { x: n.x - 65, y: n.y - 29, width: 130, height: 58 }));\n    const t = el(\"text\", { class: \"t\", x: n.x, y: n.y - 4, \"text-anchor\": \"middle\" }); t.textContent = n.label;\n    const s = el(\"text\", { class: \"s\", x: n.x, y: n.y + 16, \"text-anchor\": \"middle\" }); s.textContent = n.sub;\n    g.appendChild(t); g.appendChild(s); svg.appendChild(g); nodeGroups[n.id] = g;\n  });\n\n  const travel = el(\"circle\", { class: \"travel\", r: 6, opacity: 0 });\n  svg.appendChild(travel);\n  const caption = document.getElementById(\"caption\");\n  const N = edges.length;\n  let i = 0, raf = null;\n\n  function clearActive() {\n    nodes.forEach(n => nodeGroups[n.id].classList.remove(\"active\"));\n    edgePaths.forEach(p => p.classList.remove(\"active\"));\n    edgeArrows.forEach(a => a.classList.remove(\"active\"));\n  }\n  function animateEdge(idx) {\n    const ed = edges[idx];\n    clearActive();\n    edgePaths[idx].classList.add(\"active\");\n    edgeArrows[idx].classList.add(\"active\");\n    nodeGroups[ed.from].classList.add(\"active\");\n    caption.innerHTML = `Paso ${idx+1}/${N}: <b>${ed.from}</b> â <b>${ed.to}</b> (${ed.label})`;\n    const path = edgePaths[idx], len = path.getTotalLength();\n    const t0 = performance.now(), dur = 900;\n    function step(now) {\n      let p = (now - t0) / dur; if (p > 1) p = 1;\n      const pt = path.getPointAtLength(p * len);\n      travel.setAttribute(\"cx\", pt.x); travel.setAttribute(\"cy\", pt.y);\n      travel.setAttribute(\"opacity\", 1);\n      if (p < 1) raf = requestAnimationFrame(step);\n      else { nodeGroups[ed.to].classList.add(\"active\"); i = (i + 1) % N; setTimeout(() => animateEdge(i), 320); }\n    }\n    raf = requestAnimationFrame(step);\n  }\n  function start() { cancelAnimationFrame(raf); i = 0; animateEdge(0); }\n  svg.addEventListener(\"click\", start);\n  start();\n})();",
+      "source": "inline_script",
+      "context": "script"
+    },
+    {
+      "code": "---\ntype: Resumen\ntitle: \"ð§  LangChain â Agentes (Resumen minimalista)\"\ndescription: \"Resumen minimalista de LangChain: agente bÃ¡sico y agente con memoria/herramientas, con scripts listos para implementar.\"\nfuente: \"https://python.langchain.com/docs\"\nsitio: \"https://gerardoesquivia.com/langchain/\"\ntags: [resumen, langchain, agentes, okf]\ntimestamp: 2026-08-28\ncreator: \"Gerardo Esquivia Zapata\"\n---\n\n# ð§  LangChain â Agentes (Resumen)\n\n> **Para quÃ©:** construir agentes (Modelo + Harness) agnÃ³sticos al modelo, con herramientas y memoria.\n> **CÃ³mo:** `pip install -U langchain \"langchain[google-genai]\"`; `create_agent(model, tools, system_prompt)` + `agent.invoke({messages})`; leer `result[\"messages\"][-1].content_blocks`.\n\n## ð¯ Para quÃ© sirve\n- Crear agentes con herramientas (funciones) y memoria, cambiando de proveedor solo con el string `model`.\n\n## ð ï¸ CÃ³mo se usa â scripts minimalistas\n\n### Caso 1 â Agente bÃ¡sico\n```python\nfrom langchain.agents import create_agent\n\ndef get_weather(city: str) -> str:\n    \"\"\"Get weather for a given city.\"\"\"\n    return f\"It's always sunny in {city}!\"\n\nagent = create_agent(\n    model=\"google_genai:gemini-2.5-flash-lite\",  # proveedor:modelo\n    tools=[get_weather],\n    system_prompt=\"You are a helpful assistant\",\n)\nresult = agent.invoke({\"messages\": [{\"role\": \"user\", \"content\": \"What's the weather in San Francisco?\"}]})\nprint(result[\"messages\"][-1].content_blocks)\n```\n\n### Caso 2 â Agente con memoria + herramienta externa\n```python\nimport urllib.request\nfrom langchain.agents import create_agent\nfrom langchain.chat_models import init_chat_model\nfrom langchain.tools import tool\nfrom langgraph.checkpoint.memory import InMemorySaver\n\n@tool\ndef fetch_text_from_url(url: str) -> str:\n    \"\"\"Fetch the document from a URL.\"\"\"\n    req = urllib.request.Request(url, headers={\"User-Agent\": \"Mozilla/5.0\"})\n    with urllib.request.urlopen(req, timeout=120) as resp:\n        return resp.read().decode(\"utf-8\", errors=\"replace\")\n\nmodel = init_chat_model(\"gemini-3.1-pro-preview\", model_provider=\"google-genai\", temperature=0.5)\nagent = create_agent(model=model, tools=[fetch_text_from_url],\n    system_prompt=\"You are a literary data assistant.\", checkpointer=InMemorySaver())\nresult = agent.invoke({\"messages\": [{\"role\": \"user\", \"content\": \"Resume: https://example.com\"}]},\n    config={\"configurable\": {\"thread_id\": \"mi-hilo-1\"}})\nprint(result[\"messages\"][-1].content_blocks)\n```\n\n## ð Conceptos clave\n| Concepto | QuÃ© es |\n|---|---|\n| `create_agent` | Ensambla modelo + herramientas + prompt |\n| `@tool` | Expone una funciÃ³n al modelo con metadata |\n| `checkpointer` / `thread_id` | Memoria de conversaciÃ³n por hilo |\n| `model=\"proveedor:modelo\"` | Cambia de proveedor sin tocar el cÃ³digo |\n\n## ð Fuente\nhttps://python.langchain.com/docs Â· Sitio: https://gerardoesquivia.com/langchain/\n\n---\n\n## ð¥ CÃ³mo agregar esto a tu OKF (para el agente)\n1. Guarda este archivo en tu vault (ej. `ð Proyectos/`).\n2. El frontmatter ya es OKF: no modifiques `type` ni `creator`.\n3. Implementa directo: copia los scripts y ajusta modelo/API key. No necesitas investigar mÃ¡s.",
+      "source": "inline_script",
+      "context": "script"
+    },
+    {
+      "code": "function descargarMD() {\n  const md = document.getElementById('md-resumen').textContent.trim();\n  const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });\n  const url = URL.createObjectURL(blob);\n  const a = document.createElement('a');\n  a.href = url;\n  a.download = 'resumen-langchain.md';\n  document.body.appendChild(a);\n  a.click();\n  a.remove();\n  URL.revokeObjectURL(url);\n}",
+      "source": "inline_script",
+      "context": "script"
+    }
+  ]
+}

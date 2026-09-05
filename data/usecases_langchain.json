@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Caso de uso 1 - https://gerardoesquivia.com/langchain/",
+    "description": "Ejemplo básico para entender la funcionalidad.",
+    "lang": "unknown",
+    "script": "# Caso de uso 1 - https://gerardoesquivia.com/langchain/\nAgente = Modelo + Harness\n"
+  },
+  {
+    "title": "Caso de uso 2 - https://gerardoesquivia.com/langchain/",
+    "description": "Integración con una API o flujo externo.",
+    "lang": "python",
+    "script": "# Caso de uso 2 - https://gerardoesquivia.com/langchain/\n# pip install -U langchain \"langchain[google-genai]\"\n# export GOOGLE_API_KEY=\"tu-api-key\"\n\nfrom langchain.agents import create_agent\n\n# 1. Herramienta = funciÃ³n Python normal. El docstring es CRÃTICO.\ndef get_weather(city: str) -> str:\n    \"\"\"Get weather for a given city.\"\"\"\n    return f\"It's always sunny in {city}!\"\n\n# 2. Crear el agente: modelo + herramientas + prompt de sistema.\nagent = create_agent(\n    model=\"google_genai:gemini-2.5-flash-lite\",  # proveedor:modelo\n    tools=[get_weather],\n    system_prompt=\"You are a helpful assistant\",\n)\n\n# 3. Invocar: el mensaje entra como lista de {role, content}.\nresult = agent.invoke(\n    {\"messages\": [{\"role\": \"user\", \"content\": \"What's the weather in San Francisco?\"}]}\n)\n\n# 4. La respuesta estÃ¡ en el ÃLTIMO mensaje.\nprint(result[\"messages\"][-1].content_blocks)\n"
+  },
+  {
+    "title": "Caso de uso 3 - https://gerardoesquivia.com/langchain/",
+    "description": "Automatización o pipeline de uso práctico.",
+    "lang": "unknown",
+    "script": "# Caso de uso 3 - https://gerardoesquivia.com/langchain/\ncity=\"San Francisco\"\n"
+  }
+]

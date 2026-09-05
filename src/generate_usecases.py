@@ -6,7 +6,6 @@ import sys
 from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parents[1] / "data"
-OUT = DATA_DIR / "usecases.json"
 
 def detect_language(code):
     code = code.lower()
@@ -29,14 +28,19 @@ def make_script_template(usecase_title, lang, snippet):
 
 def generate(usecase_count=3, source_file=None, lib_name=None):
     if source_file is None:
-        # buscar el primer json en data
         files = list(DATA_DIR.glob("*.json"))
         if not files:
             raise FileNotFoundError("No hay archivos JSON en data/")
         source_file = files[0]
+
     data = json.load(open(source_file, encoding="utf-8"))
     blocks = data.get("blocks", [])
     lib_name = lib_name or data.get("meta", {}).get("url", "libreria")
+
+    # Crear nombre de salida único según la librería
+    lib_clean = Path(source_file).stem.split("_")[-1]
+    OUT = DATA_DIR / f"usecases_{lib_clean}.json"
+
     usecases = []
     for i in range(usecase_count):
         snippet = blocks[i]["code"] if i < len(blocks) else f"# Ejemplo minimalista de {lib_name}"
@@ -49,6 +53,7 @@ def generate(usecase_count=3, source_file=None, lib_name=None):
         ][i % 3]
         script = make_script_template(title, lang, snippet)
         usecases.append({"title": title, "description": desc, "lang": lang, "script": script})
+
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(usecases, f, ensure_ascii=False, indent=2)

@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "url": "https://gerardoesquivia.com/gemini/",
+    "fetched_at": "2026-09-05T07:48:45",
+    "count": 26
+  },
+  "blocks": [
+    {
+      "code": "google-genai",
+      "source": "pre/code",
+      "context": "p"
+    },
+    {
+      "code": "client.interactions.create(...)",
+      "source": "pre/code",
+      "context": "p"
+    },
+    {
+      "code": "# pip install -U google-genai\n# export GEMINI_API_KEY=\"tu-api-key\"\n\nfrom google import genai\n\n# 1. Crear el cliente (lee GEMINI_API_KEY).\nclient = genai.Client()\n\n# 2. Primera llamada: modelo + entrada (input).\ninteraction = client.interactions.create(\n    model=\"gemini-3.6-flash\",\n    input=\"Explain how AI works in a few words\"\n)\n\n# 3. El texto final estÃ¡ en output_text.\nprint(interaction.output_text)\n\n# ---- Streaming: respuesta en tiempo real ----\nstream = client.interactions.create(\n    model=\"gemini-3.6-flash\",\n    input=\"Explain how AI works\",\n    stream=True\n)\nfor event in stream:\n    print(event)   # cada evento = un fragmento (step.delta)",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "genai.Client()",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "GEMINI_API_KEY",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "interactions.create(model, input)",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "Interaction",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "output_text",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "stream=True",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "models.generate_content()",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "ai.google.dev/gemini-api/docs/interactions-overview",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "import json\nfrom google import genai\n\nclient = genai.Client()\n\n# 1. Declarar la herramienta (esquema de la funciÃ³n).\nweather_tool = {\n    \"type\": \"function\",\n    \"name\": \"get_current_temperature\",\n    \"description\": \"Gets the current temperature for a given location.\",\n    \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"location\": {\"type\": \"string\", \"description\": \"The city name, e.g. San Francisco\"},\n        },\n        \"required\": [\"location\"],\n    },\n}\n\n# 2. Funciones locales (el modelo NO las ejecuta; las ejecutas tÃº).\navailable_functions = {\n    \"get_current_temperature\": lambda location: {\n        \"location\": location, \"temperature\": \"22\", \"unit\": \"celsius\"\n    },\n}\n\nuser_input = \"What is the temperature in London?\"\nprevious_id = None\n\n# 3. Bucle: el modelo pide la funciÃ³n â la ejecutas â devuelves el resultado.\nwhile True:\n    interaction = client.interactions.create(\n        model=\"gemini-3.6-flash\",\n        input=user_input,\n        tools=[weather_tool],\n        previous_interaction_id=previous_id,\n    )\n\n    function_results = []\n    for step in interaction.steps:\n        if step.type == \"function_call\":\n            result = available_functions[step.name](**step.arguments)\n            print(f\"Called {step.name}({step.arguments}) â {result}\")\n            function_results.append({\n                \"type\": \"function_result\",\n                \"name\": step.name,\n                \"call_id\": step.id,\n                \"result\": [{\"type\": \"text\", \"text\": json.dumps(result)}],\n            })\n\n    if not function_results:\n        break  # ya no hay mÃ¡s funciones que llamar\n\n    user_input = function_results\n    previous_id = interaction.id\n\nprint(interaction.output_text)",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "tools=[...]",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "step.type == \"function_call\"",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "step.arguments",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "function_result",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "previous_interaction_id",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "genai.Client",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "interactions.create",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "function_call",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "C:\\Users\\TUF\\Documents\\librerÃ­as\\local\\",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "pip install -U google-genai",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "https://ai.google.dev/gemini-api/docs/get-started",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "(function () {\n  const nodes = [\n    { id: \"user\",   label: \"Usuario\",  sub: \"input\", x: 70,  y: 230 },\n    { id: \"client\", label: \"Client\",   sub: \"genai.Client\", x: 210, y: 100 },\n    { id: \"api\",    label: \"API\",      sub: \"interactions.create\", x: 390, y: 100 },\n    { id: \"model\",  label: \"Modelo\",   sub: \"gemini-3.6-flash\", x: 570, y: 100 },\n    { id: \"func\",   label: \"FunciÃ³n\",  sub: \"function_call\", x: 570, y: 360 },\n    { id: \"resp\",   label: \"Respuesta\", sub: \"output_text\", x: 810, y: 230 },\n  ];\n  const edges = [\n    { from: \"user\",   to: \"client\", label: \"input\", loop: false },\n    { from: \"client\", to: \"api\",    label: \"create\", loop: false },\n    { from: \"api\",    to: \"model\",  label: \"prompt\", loop: false },\n    { from: \"model\",  to: \"func\",   label: \"function_call\", loop: true },\n    { from: \"func\",   to: \"model\",  label: \"function_result\", loop: true },\n    { from: \"model\",  to: \"resp\",   label: \"output\", loop: false },\n    { from: \"resp\",   to: \"user\",   label: \"devuelve\", loop: false },\n  ];\n  const pos = Object.fromEntries(nodes.map(n => [n.id, { x: n.x, y: n.y }]));\n  const svg = document.getElementById(\"grafo\");\n  const NS = \"http://www.w3.org/2000/svg\";\n  function el(tag, attrs) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; }\n\n  const edgePaths = [], edgeArrows = [], edgeGeom = [];\n  edges.forEach((ed) => {\n    const a = pos[ed.from], b = pos[ed.to];\n    let d, mid;\n    if (ed.loop) {\n      const dir = ed.from === \"model\" ? 1 : -1;\n      const cx = 570 + dir * 150, cy = (a.y + b.y) / 2;\n      d = `M ${a.x} ${a.y} C ${cx} ${a.y}, ${cx} ${b.y}, ${b.x} ${b.y}`;\n      mid = { x: cx, y: cy };\n    } else if (ed.from === \"resp\") {\n      d = `M ${a.x} ${a.y} C ${(a.x+b.x)/2} 460, ${(a.x+b.x)/2} 460, ${b.x} ${b.y}`;\n      mid = { x: (a.x + b.x) / 2, y: 430 };\n    } else {\n      const dx = Math.abs(b.x - a.x), dy = Math.abs(b.y - a.y);\n      if (dy > dx) {\n        const my = (a.y + b.y) / 2;\n        d = `M ${a.x} ${a.y} C ${a.x} ${my}, ${b.x} ${my}, ${b.x} ${b.y}`;\n        mid = { x: (a.x + b.x) / 2, y: my };\n      } else {\n        const mx = (a.x + b.x) / 2;\n        d = `M ${a.x} ${a.y} C ${mx} ${a.y}, ${mx} ${b.y}, ${b.x} ${b.y}`;\n        mid = { x: mx, y: (a.y + b.y) / 2 };\n      }\n    }\n    const path = el(\"path\", { class: \"edge\", d });\n    svg.appendChild(path); edgePaths.push(path);\n    const ang = Math.atan2(b.y - mid.y, b.x - mid.x);\n    const tx = b.x - 18 * Math.cos(ang), ty = b.y - 18 * Math.sin(ang);\n    const arrow = el(\"path\", { class: \"arrow\", d: `M ${tx} ${ty} l 8 ${-4} l -8 ${-4} z`, transform: `rotate(${ang*180/Math.PI} ${tx} ${ty})` });\n    svg.appendChild(arrow); edgeArrows.push(arrow);\n    edgeGeom.push({ a, b });\n  });\n\n  const nodeGroups = {};\n  nodes.forEach(n => {\n    const g = el(\"g\", { class: \"node\" });\n    const w = n.id === \"api\" ? 150 : 130;\n    g.appendChild(el(\"rect\", { x: n.x - w/2, y: n.y - 29, width: w, height: 58 }));\n    const t = el(\"text\", { class: \"t\", x: n.x, y: n.y - 4, \"text-anchor\": \"middle\" }); t.textContent = n.label;\n    const s = el(\"text\", { class: \"s\", x: n.x, y: n.y + 16, \"text-anchor\": \"middle\" }); s.textContent = n.sub;\n    g.appendChild(t); g.appendChild(s); svg.appendChild(g); nodeGroups[n.id] = g;\n  });\n\n  const travel = el(\"circle\", { class: \"travel\", r: 6, opacity: 0 });\n  svg.appendChild(travel);\n  const caption = document.getElementById(\"caption\");\n  const N = edges.length;\n  let i = 0, raf = null;\n\n  function clearActive() {\n    nodes.forEach(n => nodeGroups[n.id].classList.remove(\"active\"));\n    edgePaths.forEach(p => p.classList.remove(\"active\"));\n    edgeArrows.forEach(a => a.classList.remove(\"active\"));\n  }\n  function animateEdge(idx) {\n    const ed = edges[idx];\n    clearActive();\n    edgePaths[idx].classList.add(\"active\");\n    edgeArrows[idx].classList.add(\"active\");\n    nodeGroups[ed.from].classList.add(\"active\");\n    caption.innerHTML = `Paso ${idx+1}/${N}: <b>${ed.from}</b> â <b>${ed.to}</b> (${ed.label})`;\n    const path = edgePaths[idx], len = path.getTotalLength();\n    const t0 = performance.now(), dur = 900;\n    function step(now) {\n      let p = (now - t0) / dur; if (p > 1) p = 1;\n      const pt = path.getPointAtLength(p * len);\n      travel.setAttribute(\"cx\", pt.x); travel.setAttribute(\"cy\", pt.y);\n      travel.setAttribute(\"opacity\", 1);\n      if (p < 1) raf = requestAnimationFrame(step);\n      else { nodeGroups[ed.to].classList.add(\"active\"); i = (i + 1) % N; setTimeout(() => animateEdge(i), 320); }\n    }\n    raf = requestAnimationFrame(step);\n  }\n  function start() { cancelAnimationFrame(raf); i = 0; animateEdge(0); }\n  svg.addEventListener(\"click\", start);\n  start();\n})();",
+      "source": "inline_script",
+      "context": "script"
+    },
+    {
+      "code": "---\ntype: Resumen\ntitle: \"ð¤ Gemini API â Interactions (Resumen minimalista)\"\ndescription: \"Resumen minimalista de la Gemini API (Interactions): generaciÃ³n de texto con streaming y function calling, con scripts listos para implementar.\"\nfuente: \"https://ai.google.dev/gemini-api/docs\"\nsitio: \"https://gerardoesquivia.com/gemini/\"\ntags: [resumen, gemini, api, okf]\ntimestamp: 2026-08-28\ncreator: \"Gerardo Esquivia Zapata\"\n---\n\n# ð¤ Gemini API â Interactions (Resumen)\n\n> **Para quÃ©:** generar texto, entender multimodalidad y conectar el modelo a tu cÃ³digo con una sola llamada central `client.interactions.create(...)`.\n> **CÃ³mo:** `pip install -U google-genai` + `GEMINI_API_KEY`; `genai.Client()`; leer `interaction.output_text`; para funciones declarar `tools=[...]` y ejecutar tÃº los `function_call`.\n\n## ð¯ Para quÃ© sirve\n- GeneraciÃ³n de texto (y streaming) en una lÃ­nea.\n- Function calling: el modelo pide una funciÃ³n, tÃº la ejecutas y le devuelves el resultado.\n\n## ð ï¸ CÃ³mo se usa â scripts minimalistas\n\n### Caso 1 â GeneraciÃ³n de texto (+ streaming)\n```python\nfrom google import genai\nclient = genai.Client()  # lee GEMINI_API_KEY\n\ninteraction = client.interactions.create(model=\"gemini-3.6-flash\", input=\"Explain how AI works in a few words\")\nprint(interaction.output_text)\n\n# Streaming:\nfor event in client.interactions.create(model=\"gemini-3.6-flash\", input=\"Explain AI\", stream=True):\n    print(event)  # cada evento = fragmento (step.delta)\n```\n\n### Caso 2 â Function calling\n```python\nimport json\nfrom google import genai\nclient = genai.Client()\n\nweather_tool = {\n    \"type\": \"function\", \"name\": \"get_current_temperature\",\n    \"description\": \"Gets the current temperature for a given location.\",\n    \"parameters\": {\"type\": \"object\", \"properties\": {\"location\": {\"type\": \"string\"}}, \"required\": [\"location\"]},\n}\navailable = {\"get_current_temperature\": lambda location: {\"location\": location, \"temperature\": \"22\", \"unit\": \"celsius\"}}\n\nuser_input = \"What is the temperature in London?\"\nprev_id = None\nwhile True:\n    interaction = client.interactions.create(model=\"gemini-3.6-flash\", input=user_input,\n                                             tools=[weather_tool], previous_interaction_id=prev_id)\n    results = []\n    for step in interaction.steps:\n        if step.type == \"function_call\":\n            results.append({\"type\": \"function_result\", \"name\": step.name, \"call_id\": step.id,\n                            \"result\": [{\"type\": \"text\", \"text\": json.dumps(available[step.name](**step.arguments))}]})\n    if not results:\n        break\n    user_input = results\n    prev_id = interaction.id\nprint(interaction.output_text)\n```\n\n## ð Conceptos clave\n| Concepto | QuÃ© es |\n|---|---|\n| `interactions.create(model, input)` | La llamada central (reemplaza a generate_content) |\n| `output_text` / `stream=True` | Texto final / respuesta en streaming (eventos SSE) |\n| `tools=[...]` | Funciones que el modelo puede invocar |\n| `function_call` / `function_result` | El modelo pide; tÃº ejecutas y devuelves |\n| `previous_interaction_id` | Encadena turnos (estado en servidor) |\n\n## ð Fuente\nhttps://ai.google.dev/gemini-api/docs Â· Sitio: https://gerardoesquivia.com/gemini/\n\n---\n\n## ð¥ CÃ³mo agregar esto a tu OKF (para el agente)\n1. Guarda este archivo en tu vault (ej. `ð Proyectos/`).\n2. El frontmatter ya es OKF: no modifiques `type` ni `creator`.\n3. Implementa directo: copia los scripts y ajusta modelo/API key. No necesitas investigar mÃ¡s.",
+      "source": "inline_script",
+      "context": "script"
+    },
+    {
+      "code": "function descargarMD() {\n  const md = document.getElementById('md-resumen').textContent.trim();\n  const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });\n  const url = URL.createObjectURL(blob);\n  const a = document.createElement('a');\n  a.href = url;\n  a.download = 'resumen-gemini.md';\n  document.body.appendChild(a);\n  a.click();\n  a.remove();\n  URL.revokeObjectURL(url);\n}",
+      "source": "inline_script",
+      "context": "script"
+    }
+  ]
+}

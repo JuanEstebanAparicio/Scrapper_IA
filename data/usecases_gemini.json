@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Caso de uso 1 - https://gerardoesquivia.com/gemini/",
+    "description": "Ejemplo básico para entender la funcionalidad.",
+    "lang": "unknown",
+    "script": "# Caso de uso 1 - https://gerardoesquivia.com/gemini/\ngoogle-genai\n"
+  },
+  {
+    "title": "Caso de uso 2 - https://gerardoesquivia.com/gemini/",
+    "description": "Integración con una API o flujo externo.",
+    "lang": "unknown",
+    "script": "# Caso de uso 2 - https://gerardoesquivia.com/gemini/\nclient.interactions.create(...)\n"
+  },
+  {
+    "title": "Caso de uso 3 - https://gerardoesquivia.com/gemini/",
+    "description": "Automatización o pipeline de uso práctico.",
+    "lang": "python",
+    "script": "# Caso de uso 3 - https://gerardoesquivia.com/gemini/\n# pip install -U google-genai\n# export GEMINI_API_KEY=\"tu-api-key\"\n\nfrom google import genai\n\n# 1. Crear el cliente (lee GEMINI_API_KEY).\nclient = genai.Client()\n\n# 2. Primera llamada: modelo + entrada (input).\ninteraction = client.interactions.create(\n    model=\"gemini-3.6-flash\",\n    input=\"Explain how AI works in a few words\"\n)\n\n# 3. El texto final estÃ¡ en output_text.\nprint(interaction.output_text)\n\n# ---- Streaming: respuesta en tiempo real ----\nstream = client.interactions.create(\n    model=\"gemini-3.6-flash\",\n    input=\"Explain how AI works\",\n    stream=True\n)\nfor event in stream:\n    print(event)   # cada evento = un fragmento (step.delta)\n"
+  }
+]
