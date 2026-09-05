@@ -13,17 +13,28 @@ class MCPAgent:
         """Ingesta un archivo de casos de uso específico"""
         data = json.load(open(usecases_file, encoding="utf-8"))
         lib_name = data[0]["title"].split("-")[-1].strip() if data else "Libreria"
-        self.graph.add_node(lib_name, type="library")
+
+        # Evitar duplicados de librería
+        if not self.graph.has_node(lib_name):
+            self.graph.add_node(lib_name, type="library")
 
         for uc in data:
-            case = uc["title"]
-            script = uc["script"]
+            case = uc["title"].strip()
+            script = uc["script"].strip()
 
-            self.graph.add_node(case, type="usecase")
-            self.graph.add_node(script, type="script")
+            # Evitar duplicados de casos
+            if not self.graph.has_node(case):
+                self.graph.add_node(case, type="usecase")
 
-            self.graph.add_edge(lib_name, case, relation="tiene")
-            self.graph.add_edge(case, script, relation="ejemplificado_por")
+            # Evitar duplicados de scripts
+            if not self.graph.has_node(script):
+                self.graph.add_node(script, type="script")
+
+            # Evitar duplicados de aristas
+            if not self.graph.has_edge(lib_name, case):
+                self.graph.add_edge(lib_name, case, relation="tiene")
+            if not self.graph.has_edge(case, script):
+                self.graph.add_edge(case, script, relation="ejemplificado_por")
 
         return lib_name
 
@@ -35,14 +46,24 @@ class MCPAgent:
             if not data or not isinstance(data, list):
                 continue
             lib_name = data[0]["title"].split("-")[-1].strip()
-            self.graph.add_node(lib_name, type="library")
+
+            if not self.graph.has_node(lib_name):
+                self.graph.add_node(lib_name, type="library")
+
             for uc in data:
-                case = uc["title"]
-                script = uc["script"]
-                self.graph.add_node(case, type="usecase")
-                self.graph.add_node(script, type="script")
-                self.graph.add_edge(lib_name, case, relation="tiene")
-                self.graph.add_edge(case, script, relation="ejemplificado_por")
+                case = uc["title"].strip()
+                script = uc["script"].strip()
+
+                if not self.graph.has_node(case):
+                    self.graph.add_node(case, type="usecase")
+                if not self.graph.has_node(script):
+                    self.graph.add_node(script, type="script")
+
+                if not self.graph.has_edge(lib_name, case):
+                    self.graph.add_edge(lib_name, case, relation="tiene")
+                if not self.graph.has_edge(case, script):
+                    self.graph.add_edge(case, script, relation="ejemplificado_por")
+
         print(f"Ingestados {len(files)} archivos en el grafo.")
 
     def list_libraries(self):

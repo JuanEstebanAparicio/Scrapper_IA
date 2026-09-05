@@ -1,4 +1,3 @@
-<!-- web/index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,6 +16,17 @@
       font-weight: 500;
       margin-bottom: 32px;
       color: #222;
+    }
+    .selector {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
     }
     .case {
       background: #fff;
@@ -68,14 +78,29 @@
 </head>
 <body>
   <h1>Casos de uso generados</h1>
-  <div id="content">Cargando...</div>
+
+  <!-- Barra de selección de librerías -->
+  <div class="selector">
+    <select id="librarySelect">
+      <option value="">-- Selecciona una librería --</option>
+      <option value="usecases_animejs.json">Anime.js</option>
+      <option value="usecases_langchain.json">LangChain</option>
+      <option value="usecases_gemini.json">Gemini</option>
+    </select>
+  </div>
+
+  <div id="content">Selecciona una librería...</div>
 
   <script>
-    async function load() {
+    const select = document.getElementById('librarySelect');
+    const container = document.getElementById('content');
+
+    select.addEventListener('change', async () => {
+      container.innerHTML = 'Cargando...';
+      if (!select.value) return;
       try {
-        const resp = await fetch('../data/usecases.json');
+        const resp = await fetch('../data/' + select.value);
         const usecases = await resp.json();
-        const container = document.getElementById('content');
         container.innerHTML = '';
         usecases.forEach((u, i) => {
           const div = document.createElement('div');
@@ -88,14 +113,16 @@
           container.appendChild(div);
         });
       } catch (e) {
-        document.getElementById('content').innerText = 'No se pudo cargar usecases.json';
+        container.innerText = 'No se pudo cargar ' + select.value;
       }
-    }
+    });
+
     function copyCode(id) {
       const text = document.getElementById(id).innerText;
       navigator.clipboard.writeText(text);
       alert('Código copiado');
     }
+
     function downloadCode(i) {
       const text = document.getElementById('code'+i).innerText;
       const blob = new Blob([text], {type: 'text/plain;charset=utf-8'});
@@ -108,7 +135,6 @@
       a.remove();
       URL.revokeObjectURL(url);
     }
-    load();
   </script>
 </body>
 </html>

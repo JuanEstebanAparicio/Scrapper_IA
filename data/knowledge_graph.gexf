@@ -21,7 +21,7 @@
           <attvalue for="0" value="usecase" />
         </attvalues>
       </node>
-      <node id="# Caso de uso 1 - https://gerardoesquivia.com/animejs/&#10;npm install animejs&#10;" label="# Caso de uso 1 - https://gerardoesquivia.com/animejs/&#10;npm install animejs&#10;">
+      <node id="# Caso de uso 1 - https://gerardoesquivia.com/animejs/&#10;npm install animejs" label="# Caso de uso 1 - https://gerardoesquivia.com/animejs/&#10;npm install animejs">
         <attvalues>
           <attvalue for="0" value="script" />
         </attvalues>
@@ -31,7 +31,7 @@
           <attvalue for="0" value="usecase" />
         </attvalues>
       </node>
-      <node id="# Caso de uso 2 - https://gerardoesquivia.com/animejs/&#10;animate()&#10;" label="# Caso de uso 2 - https://gerardoesquivia.com/animejs/&#10;animate()&#10;">
+      <node id="# Caso de uso 2 - https://gerardoesquivia.com/animejs/&#10;animate()" label="# Caso de uso 2 - https://gerardoesquivia.com/animejs/&#10;animate()">
         <attvalues>
           <attvalue for="0" value="script" />
         </attvalues>
@@ -41,7 +41,7 @@
           <attvalue for="0" value="usecase" />
         </attvalues>
       </node>
-      <node id="# Caso de uso 3 - https://gerardoesquivia.com/animejs/&#10;// npm install animejs&#10;import { animate } from 'animejs';&#10;&#10;// Mueve .cuadrado 250px a la derecha con rebote.&#10;animate('.cuadrado', {&#10;  translateX: 250,&#10;  duration: 800,&#10;  ease: 'outBounce',&#10;});&#10;&#10;// RepeticiÃ³n en bucle, yendo y viniendo.&#10;animate('.cuadrado', {&#10;  translateX: 250,&#10;  loop: true,&#10;  alternate: true,&#10;});&#10;" label="# Caso de uso 3 - https://gerardoesquivia.com/animejs/&#10;// npm install animejs&#10;import { animate } from 'animejs';&#10;&#10;// Mueve .cuadrado 250px a la derecha con rebote.&#10;animate('.cuadrado', {&#10;  translateX: 250,&#10;  duration: 800,&#10;  ease: 'outBounce',&#10;});&#10;&#10;// RepeticiÃ³n en bucle, yendo y viniendo.&#10;animate('.cuadrado', {&#10;  translateX: 250,&#10;  loop: true,&#10;  alternate: true,&#10;});&#10;">
+      <node id="# Caso de uso 3 - https://gerardoesquivia.com/animejs/&#10;// npm install animejs&#10;import { animate } from 'animejs';&#10;&#10;// Mueve .cuadrado 250px a la derecha con rebote.&#10;animate('.cuadrado', {&#10;  translateX: 250,&#10;  duration: 800,&#10;  ease: 'outBounce',&#10;});&#10;&#10;// RepeticiÃ³n en bucle, yendo y viniendo.&#10;animate('.cuadrado', {&#10;  translateX: 250,&#10;  loop: true,&#10;  alternate: true,&#10;});" label="# Caso de uso 3 - https://gerardoesquivia.com/animejs/&#10;// npm install animejs&#10;import { animate } from 'animejs';&#10;&#10;// Mueve .cuadrado 250px a la derecha con rebote.&#10;animate('.cuadrado', {&#10;  translateX: 250,&#10;  duration: 800,&#10;  ease: 'outBounce',&#10;});&#10;&#10;// RepeticiÃ³n en bucle, yendo y viniendo.&#10;animate('.cuadrado', {&#10;  translateX: 250,&#10;  loop: true,&#10;  alternate: true,&#10;});">
         <attvalues>
           <attvalue for="0" value="script" />
         </attvalues>
@@ -56,7 +56,7 @@
           <attvalue for="0" value="usecase" />
         </attvalues>
       </node>
-      <node id="# Caso de uso 1 - https://gerardoesquivia.com/gemini/&#10;google-genai&#10;" label="# Caso de uso 1 - https://gerardoesquivia.com/gemini/&#10;google-genai&#10;">
+      <node id="# Caso de uso 1 - https://gerardoesquivia.com/gemini/&#10;google-genai" label="# Caso de uso 1 - https://gerardoesquivia.com/gemini/&#10;google-genai">
         <attvalues>
           <attvalue for="0" value="script" />
         </attvalues>
@@ -66,7 +66,7 @@
           <attvalue for="0" value="usecase" />
         </attvalues>
       </node>
-      <node id="# Caso de uso 2 - https://gerardoesquivia.com/gemini/&#10;client.interactions.create(...)&#10;" label="# Caso de uso 2 - https://gerardoesquivia.com/gemini/&#10;client.interactions.create(...)&#10;">
+      <node id="# Caso de uso 2 - https://gerardoesquivia.com/gemini/&#10;client.interactions.create(...)" label="# Caso de uso 2 - https://gerardoesquivia.com/gemini/&#10;client.interactions.create(...)">
         <attvalues>
           <attvalue for="0" value="script" />
         </attvalues>
@@ -76,7 +76,7 @@
           <attvalue for="0" value="usecase" />
         </attvalues>
       </node>
-      <node id="# Caso de uso 3 - https://gerardoesquivia.com/gemini/&#10;# pip install -U google-genai&#10;# export GEMINI_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from google import genai&#10;&#10;# 1. Crear el cliente (lee GEMINI_API_KEY).&#10;client = genai.Client()&#10;&#10;# 2. Primera llamada: modelo + entrada (input).&#10;interaction = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works in a few words&quot;&#10;)&#10;&#10;# 3. El texto final estÃ¡ en output_text.&#10;print(interaction.output_text)&#10;&#10;# ---- Streaming: respuesta en tiempo real ----&#10;stream = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works&quot;,&#10;    stream=True&#10;)&#10;for event in stream:&#10;    print(event)   # cada evento = un fragmento (step.delta)&#10;" label="# Caso de uso 3 - https://gerardoesquivia.com/gemini/&#10;# pip install -U google-genai&#10;# export GEMINI_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from google import genai&#10;&#10;# 1. Crear el cliente (lee GEMINI_API_KEY).&#10;client = genai.Client()&#10;&#10;# 2. Primera llamada: modelo + entrada (input).&#10;interaction = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works in a few words&quot;&#10;)&#10;&#10;# 3. El texto final estÃ¡ en output_text.&#10;print(interaction.output_text)&#10;&#10;# ---- Streaming: respuesta en tiempo real ----&#10;stream = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works&quot;,&#10;    stream=True&#10;)&#10;for event in stream:&#10;    print(event)   # cada evento = un fragmento (step.delta)&#10;">
+      <node id="# Caso de uso 3 - https://gerardoesquivia.com/gemini/&#10;# pip install -U google-genai&#10;# export GEMINI_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from google import genai&#10;&#10;# 1. Crear el cliente (lee GEMINI_API_KEY).&#10;client = genai.Client()&#10;&#10;# 2. Primera llamada: modelo + entrada (input).&#10;interaction = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works in a few words&quot;&#10;)&#10;&#10;# 3. El texto final estÃ¡ en output_text.&#10;print(interaction.output_text)&#10;&#10;# ---- Streaming: respuesta en tiempo real ----&#10;stream = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works&quot;,&#10;    stream=True&#10;)&#10;for event in stream:&#10;    print(event)   # cada evento = un fragmento (step.delta)" label="# Caso de uso 3 - https://gerardoesquivia.com/gemini/&#10;# pip install -U google-genai&#10;# export GEMINI_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from google import genai&#10;&#10;# 1. Crear el cliente (lee GEMINI_API_KEY).&#10;client = genai.Client()&#10;&#10;# 2. Primera llamada: modelo + entrada (input).&#10;interaction = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works in a few words&quot;&#10;)&#10;&#10;# 3. El texto final estÃ¡ en output_text.&#10;print(interaction.output_text)&#10;&#10;# ---- Streaming: respuesta en tiempo real ----&#10;stream = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works&quot;,&#10;    stream=True&#10;)&#10;for event in stream:&#10;    print(event)   # cada evento = un fragmento (step.delta)">
         <attvalues>
           <attvalue for="0" value="script" />
         </attvalues>
@@ -91,7 +91,7 @@
           <attvalue for="0" value="usecase" />
         </attvalues>
       </node>
-      <node id="# Caso de uso 1 - https://gerardoesquivia.com/langchain/&#10;Agente = Modelo + Harness&#10;" label="# Caso de uso 1 - https://gerardoesquivia.com/langchain/&#10;Agente = Modelo + Harness&#10;">
+      <node id="# Caso de uso 1 - https://gerardoesquivia.com/langchain/&#10;Agente = Modelo + Harness" label="# Caso de uso 1 - https://gerardoesquivia.com/langchain/&#10;Agente = Modelo + Harness">
         <attvalues>
           <attvalue for="0" value="script" />
         </attvalues>
@@ -101,7 +101,7 @@
           <attvalue for="0" value="usecase" />
         </attvalues>
       </node>
-      <node id="# Caso de uso 2 - https://gerardoesquivia.com/langchain/&#10;# pip install -U langchain &quot;langchain[google-genai]&quot;&#10;# export GOOGLE_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from langchain.agents import create_agent&#10;&#10;# 1. Herramienta = funciÃ³n Python normal. El docstring es CRÃTICO.&#10;def get_weather(city: str) -&gt; str:&#10;    &quot;&quot;&quot;Get weather for a given city.&quot;&quot;&quot;&#10;    return f&quot;It's always sunny in {city}!&quot;&#10;&#10;# 2. Crear el agente: modelo + herramientas + prompt de sistema.&#10;agent = create_agent(&#10;    model=&quot;google_genai:gemini-2.5-flash-lite&quot;,  # proveedor:modelo&#10;    tools=[get_weather],&#10;    system_prompt=&quot;You are a helpful assistant&quot;,&#10;)&#10;&#10;# 3. Invocar: el mensaje entra como lista de {role, content}.&#10;result = agent.invoke(&#10;    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What's the weather in San Francisco?&quot;}]}&#10;)&#10;&#10;# 4. La respuesta estÃ¡ en el ÃLTIMO mensaje.&#10;print(result[&quot;messages&quot;][-1].content_blocks)&#10;" label="# Caso de uso 2 - https://gerardoesquivia.com/langchain/&#10;# pip install -U langchain &quot;langchain[google-genai]&quot;&#10;# export GOOGLE_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from langchain.agents import create_agent&#10;&#10;# 1. Herramienta = funciÃ³n Python normal. El docstring es CRÃTICO.&#10;def get_weather(city: str) -&gt; str:&#10;    &quot;&quot;&quot;Get weather for a given city.&quot;&quot;&quot;&#10;    return f&quot;It's always sunny in {city}!&quot;&#10;&#10;# 2. Crear el agente: modelo + herramientas + prompt de sistema.&#10;agent = create_agent(&#10;    model=&quot;google_genai:gemini-2.5-flash-lite&quot;,  # proveedor:modelo&#10;    tools=[get_weather],&#10;    system_prompt=&quot;You are a helpful assistant&quot;,&#10;)&#10;&#10;# 3. Invocar: el mensaje entra como lista de {role, content}.&#10;result = agent.invoke(&#10;    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What's the weather in San Francisco?&quot;}]}&#10;)&#10;&#10;# 4. La respuesta estÃ¡ en el ÃLTIMO mensaje.&#10;print(result[&quot;messages&quot;][-1].content_blocks)&#10;">
+      <node id="# Caso de uso 2 - https://gerardoesquivia.com/langchain/&#10;# pip install -U langchain &quot;langchain[google-genai]&quot;&#10;# export GOOGLE_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from langchain.agents import create_agent&#10;&#10;# 1. Herramienta = funciÃ³n Python normal. El docstring es CRÃTICO.&#10;def get_weather(city: str) -&gt; str:&#10;    &quot;&quot;&quot;Get weather for a given city.&quot;&quot;&quot;&#10;    return f&quot;It's always sunny in {city}!&quot;&#10;&#10;# 2. Crear el agente: modelo + herramientas + prompt de sistema.&#10;agent = create_agent(&#10;    model=&quot;google_genai:gemini-2.5-flash-lite&quot;,  # proveedor:modelo&#10;    tools=[get_weather],&#10;    system_prompt=&quot;You are a helpful assistant&quot;,&#10;)&#10;&#10;# 3. Invocar: el mensaje entra como lista de {role, content}.&#10;result = agent.invoke(&#10;    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What's the weather in San Francisco?&quot;}]}&#10;)&#10;&#10;# 4. La respuesta estÃ¡ en el ÃLTIMO mensaje.&#10;print(result[&quot;messages&quot;][-1].content_blocks)" label="# Caso de uso 2 - https://gerardoesquivia.com/langchain/&#10;# pip install -U langchain &quot;langchain[google-genai]&quot;&#10;# export GOOGLE_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from langchain.agents import create_agent&#10;&#10;# 1. Herramienta = funciÃ³n Python normal. El docstring es CRÃTICO.&#10;def get_weather(city: str) -&gt; str:&#10;    &quot;&quot;&quot;Get weather for a given city.&quot;&quot;&quot;&#10;    return f&quot;It's always sunny in {city}!&quot;&#10;&#10;# 2. Crear el agente: modelo + herramientas + prompt de sistema.&#10;agent = create_agent(&#10;    model=&quot;google_genai:gemini-2.5-flash-lite&quot;,  # proveedor:modelo&#10;    tools=[get_weather],&#10;    system_prompt=&quot;You are a helpful assistant&quot;,&#10;)&#10;&#10;# 3. Invocar: el mensaje entra como lista de {role, content}.&#10;result = agent.invoke(&#10;    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What's the weather in San Francisco?&quot;}]}&#10;)&#10;&#10;# 4. La respuesta estÃ¡ en el ÃLTIMO mensaje.&#10;print(result[&quot;messages&quot;][-1].content_blocks)">
         <attvalues>
           <attvalue for="0" value="script" />
         </attvalues>
@@ -111,7 +111,7 @@
           <attvalue for="0" value="usecase" />
         </attvalues>
       </node>
-      <node id="# Caso de uso 3 - https://gerardoesquivia.com/langchain/&#10;city=&quot;San Francisco&quot;&#10;" label="# Caso de uso 3 - https://gerardoesquivia.com/langchain/&#10;city=&quot;San Francisco&quot;&#10;">
+      <node id="# Caso de uso 3 - https://gerardoesquivia.com/langchain/&#10;city=&quot;San Francisco&quot;" label="# Caso de uso 3 - https://gerardoesquivia.com/langchain/&#10;city=&quot;San Francisco&quot;">
         <attvalues>
           <attvalue for="0" value="script" />
         </attvalues>
@@ -133,17 +133,17 @@
           <attvalue for="1" value="tiene" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 1 - https://gerardoesquivia.com/animejs/" target="# Caso de uso 1 - https://gerardoesquivia.com/animejs/&#10;npm install animejs&#10;" id="3">
+      <edge source="Caso de uso 1 - https://gerardoesquivia.com/animejs/" target="# Caso de uso 1 - https://gerardoesquivia.com/animejs/&#10;npm install animejs" id="3">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 2 - https://gerardoesquivia.com/animejs/" target="# Caso de uso 2 - https://gerardoesquivia.com/animejs/&#10;animate()&#10;" id="4">
+      <edge source="Caso de uso 2 - https://gerardoesquivia.com/animejs/" target="# Caso de uso 2 - https://gerardoesquivia.com/animejs/&#10;animate()" id="4">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 3 - https://gerardoesquivia.com/animejs/" target="# Caso de uso 3 - https://gerardoesquivia.com/animejs/&#10;// npm install animejs&#10;import { animate } from 'animejs';&#10;&#10;// Mueve .cuadrado 250px a la derecha con rebote.&#10;animate('.cuadrado', {&#10;  translateX: 250,&#10;  duration: 800,&#10;  ease: 'outBounce',&#10;});&#10;&#10;// RepeticiÃ³n en bucle, yendo y viniendo.&#10;animate('.cuadrado', {&#10;  translateX: 250,&#10;  loop: true,&#10;  alternate: true,&#10;});&#10;" id="5">
+      <edge source="Caso de uso 3 - https://gerardoesquivia.com/animejs/" target="# Caso de uso 3 - https://gerardoesquivia.com/animejs/&#10;// npm install animejs&#10;import { animate } from 'animejs';&#10;&#10;// Mueve .cuadrado 250px a la derecha con rebote.&#10;animate('.cuadrado', {&#10;  translateX: 250,&#10;  duration: 800,&#10;  ease: 'outBounce',&#10;});&#10;&#10;// RepeticiÃ³n en bucle, yendo y viniendo.&#10;animate('.cuadrado', {&#10;  translateX: 250,&#10;  loop: true,&#10;  alternate: true,&#10;});" id="5">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
@@ -163,17 +163,17 @@
           <attvalue for="1" value="tiene" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 1 - https://gerardoesquivia.com/gemini/" target="# Caso de uso 1 - https://gerardoesquivia.com/gemini/&#10;google-genai&#10;" id="9">
+      <edge source="Caso de uso 1 - https://gerardoesquivia.com/gemini/" target="# Caso de uso 1 - https://gerardoesquivia.com/gemini/&#10;google-genai" id="9">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 2 - https://gerardoesquivia.com/gemini/" target="# Caso de uso 2 - https://gerardoesquivia.com/gemini/&#10;client.interactions.create(...)&#10;" id="10">
+      <edge source="Caso de uso 2 - https://gerardoesquivia.com/gemini/" target="# Caso de uso 2 - https://gerardoesquivia.com/gemini/&#10;client.interactions.create(...)" id="10">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 3 - https://gerardoesquivia.com/gemini/" target="# Caso de uso 3 - https://gerardoesquivia.com/gemini/&#10;# pip install -U google-genai&#10;# export GEMINI_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from google import genai&#10;&#10;# 1. Crear el cliente (lee GEMINI_API_KEY).&#10;client = genai.Client()&#10;&#10;# 2. Primera llamada: modelo + entrada (input).&#10;interaction = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works in a few words&quot;&#10;)&#10;&#10;# 3. El texto final estÃ¡ en output_text.&#10;print(interaction.output_text)&#10;&#10;# ---- Streaming: respuesta en tiempo real ----&#10;stream = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works&quot;,&#10;    stream=True&#10;)&#10;for event in stream:&#10;    print(event)   # cada evento = un fragmento (step.delta)&#10;" id="11">
+      <edge source="Caso de uso 3 - https://gerardoesquivia.com/gemini/" target="# Caso de uso 3 - https://gerardoesquivia.com/gemini/&#10;# pip install -U google-genai&#10;# export GEMINI_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from google import genai&#10;&#10;# 1. Crear el cliente (lee GEMINI_API_KEY).&#10;client = genai.Client()&#10;&#10;# 2. Primera llamada: modelo + entrada (input).&#10;interaction = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works in a few words&quot;&#10;)&#10;&#10;# 3. El texto final estÃ¡ en output_text.&#10;print(interaction.output_text)&#10;&#10;# ---- Streaming: respuesta en tiempo real ----&#10;stream = client.interactions.create(&#10;    model=&quot;gemini-3.6-flash&quot;,&#10;    input=&quot;Explain how AI works&quot;,&#10;    stream=True&#10;)&#10;for event in stream:&#10;    print(event)   # cada evento = un fragmento (step.delta)" id="11">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
@@ -193,17 +193,17 @@
           <attvalue for="1" value="tiene" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 1 - https://gerardoesquivia.com/langchain/" target="# Caso de uso 1 - https://gerardoesquivia.com/langchain/&#10;Agente = Modelo + Harness&#10;" id="15">
+      <edge source="Caso de uso 1 - https://gerardoesquivia.com/langchain/" target="# Caso de uso 1 - https://gerardoesquivia.com/langchain/&#10;Agente = Modelo + Harness" id="15">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 2 - https://gerardoesquivia.com/langchain/" target="# Caso de uso 2 - https://gerardoesquivia.com/langchain/&#10;# pip install -U langchain &quot;langchain[google-genai]&quot;&#10;# export GOOGLE_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from langchain.agents import create_agent&#10;&#10;# 1. Herramienta = funciÃ³n Python normal. El docstring es CRÃTICO.&#10;def get_weather(city: str) -&gt; str:&#10;    &quot;&quot;&quot;Get weather for a given city.&quot;&quot;&quot;&#10;    return f&quot;It's always sunny in {city}!&quot;&#10;&#10;# 2. Crear el agente: modelo + herramientas + prompt de sistema.&#10;agent = create_agent(&#10;    model=&quot;google_genai:gemini-2.5-flash-lite&quot;,  # proveedor:modelo&#10;    tools=[get_weather],&#10;    system_prompt=&quot;You are a helpful assistant&quot;,&#10;)&#10;&#10;# 3. Invocar: el mensaje entra como lista de {role, content}.&#10;result = agent.invoke(&#10;    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What's the weather in San Francisco?&quot;}]}&#10;)&#10;&#10;# 4. La respuesta estÃ¡ en el ÃLTIMO mensaje.&#10;print(result[&quot;messages&quot;][-1].content_blocks)&#10;" id="16">
+      <edge source="Caso de uso 2 - https://gerardoesquivia.com/langchain/" target="# Caso de uso 2 - https://gerardoesquivia.com/langchain/&#10;# pip install -U langchain &quot;langchain[google-genai]&quot;&#10;# export GOOGLE_API_KEY=&quot;tu-api-key&quot;&#10;&#10;from langchain.agents import create_agent&#10;&#10;# 1. Herramienta = funciÃ³n Python normal. El docstring es CRÃTICO.&#10;def get_weather(city: str) -&gt; str:&#10;    &quot;&quot;&quot;Get weather for a given city.&quot;&quot;&quot;&#10;    return f&quot;It's always sunny in {city}!&quot;&#10;&#10;# 2. Crear el agente: modelo + herramientas + prompt de sistema.&#10;agent = create_agent(&#10;    model=&quot;google_genai:gemini-2.5-flash-lite&quot;,  # proveedor:modelo&#10;    tools=[get_weather],&#10;    system_prompt=&quot;You are a helpful assistant&quot;,&#10;)&#10;&#10;# 3. Invocar: el mensaje entra como lista de {role, content}.&#10;result = agent.invoke(&#10;    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What's the weather in San Francisco?&quot;}]}&#10;)&#10;&#10;# 4. La respuesta estÃ¡ en el ÃLTIMO mensaje.&#10;print(result[&quot;messages&quot;][-1].content_blocks)" id="16">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
       </edge>
-      <edge source="Caso de uso 3 - https://gerardoesquivia.com/langchain/" target="# Caso de uso 3 - https://gerardoesquivia.com/langchain/&#10;city=&quot;San Francisco&quot;&#10;" id="17">
+      <edge source="Caso de uso 3 - https://gerardoesquivia.com/langchain/" target="# Caso de uso 3 - https://gerardoesquivia.com/langchain/&#10;city=&quot;San Francisco&quot;" id="17">
         <attvalues>
           <attvalue for="1" value="ejemplificado_por" />
         </attvalues>
