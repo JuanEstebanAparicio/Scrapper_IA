@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Caso de uso 1 - https://gerardoesquivia.com/animejs/",
+    "description": "Ejemplo básico para entender la funcionalidad.",
+    "lang": "unknown",
+    "script": "# Caso de uso 1 - https://gerardoesquivia.com/animejs/\nnpm install animejs\n"
+  },
+  {
+    "title": "Caso de uso 2 - https://gerardoesquivia.com/animejs/",
+    "description": "Integración con una API o flujo externo.",
+    "lang": "unknown",
+    "script": "# Caso de uso 2 - https://gerardoesquivia.com/animejs/\nanimate()\n"
+  },
+  {
+    "title": "Caso de uso 3 - https://gerardoesquivia.com/animejs/",
+    "description": "Automatización o pipeline de uso práctico.",
+    "lang": "python",
+    "script": "# Caso de uso 3 - https://gerardoesquivia.com/animejs/\n// npm install animejs\nimport { animate } from 'animejs';\n\n// Mueve .cuadrado 250px a la derecha con rebote.\nanimate('.cuadrado', {\n  translateX: 250,\n  duration: 800,\n  ease: 'outBounce',\n});\n\n// RepeticiÃ³n en bucle, yendo y viniendo.\nanimate('.cuadrado', {\n  translateX: 250,\n  loop: true,\n  alternate: true,\n});\n"
+  }
+]

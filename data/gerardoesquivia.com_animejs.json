@@ -1,0 +1,199 @@
+{
+  "meta": {
+    "url": "https://gerardoesquivia.com/animejs/",
+    "fetched_at": "2026-09-04T20:35:12",
+    "count": 38
+  },
+  "blocks": [
+    {
+      "code": "npm install animejs",
+      "source": "pre/code",
+      "context": "p"
+    },
+    {
+      "code": "animate()",
+      "source": "pre/code",
+      "context": "h2"
+    },
+    {
+      "code": "// npm install animejs\nimport { animate } from 'animejs';\n\n// Mueve .cuadrado 250px a la derecha con rebote.\nanimate('.cuadrado', {\n  translateX: 250,\n  duration: 800,\n  ease: 'outBounce',\n});\n\n// RepeticiÃ³n en bucle, yendo y viniendo.\nanimate('.cuadrado', {\n  translateX: 250,\n  loop: true,\n  alternate: true,\n});",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "animate(targets, params)",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "translateX",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "duration",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "alternate",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "transform",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "import { createTimeline } from 'animejs';\n\nconst tl = createTimeline({ defaults: { duration: 750 } });\n\ntl.label('inicio')                                 // marca reutilizable\n  .add('.cuadrado',  { x: '15rem' }, 500)        // empieza en el ms 500\n  .add('.circulo',   { x: '15rem' }, 'inicio')   // a la vez que 'inicio'\n  .add('.triangulo', { x: '15rem', rotate: '1turn' }, '<-=500'); // 500ms antes de acabar",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "createTimeline()",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": ".add(target, params, position)",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "defaults",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "tl.play()",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "tl.pause()",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "tl.reverse()",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "import { animate, stagger } from 'animejs';\n\nanimate('.item', {\n  x: '17rem',\n  scale: stagger([1, .1]),   // valores progresivos por elemento\n  delay: stagger(100),       // 100ms entre cada elemento\n});",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "stagger(value)",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "import { animate } from 'animejs';\n\nconst anim = animate('.logo', {\n  translateX: 200,\n  duration: 1000,\n  loop: true,\n  alternate: true,\n});\n\nanim.pause();     // pausar\nanim.play();      // reanudar\nanim.reverse();   // invertir direcciÃ³n\nanim.restart();   // reiniciar desde 0\nanim.seek(500);   // saltar al ms 500\nanim.complete();  // ir al final (onComplete)",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "autoplay: false",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "onUpdate",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "onComplete",
+      "source": "pre/code",
+      "context": "li"
+    },
+    {
+      "code": "revert()",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "createTimeline(params)",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": ".label()",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "splitText()",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "scrambleText()",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "onScroll()",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "morphTo()",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "createMotionPath()",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "waapi.animate()",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "reversed",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "autoplay",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "reverse()",
+      "source": "pre/code",
+      "context": "td"
+    },
+    {
+      "code": "C:\\Users\\TUF\\Documents\\librerÃ­as\\local\\",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "https://animejs.com/documentation",
+      "source": "pre/code",
+      "context": "div"
+    },
+    {
+      "code": "(function () {\n  const nodes = [\n    { id: \"code\",  label: \"animate()\",   sub: \"crear\",   x: 70,  y: 210 },\n    { id: \"engine\",label: \"Engine\",      sub: \"motor/RAF\", x: 520, y: 90 },\n    { id: \"target\",label: \"Target\",      sub: \"elemento\", x: 520, y: 330 },\n    { id: \"done\",  label: \"onComplete\",  sub: \"callback\", x: 800, y: 210 },\n  ];\n  const edges = [\n    { from: \"code\",   to: \"engine\", label: \"registra\", loop: false },\n    { from: \"engine\", to: \"target\", label: \"interpola\", loop: true },\n    { from: \"target\", to: \"engine\", label: \"actualiza\", loop: true },\n    { from: \"engine\", to: \"done\",   label: \"completa\", loop: false },\n    { from: \"done\",   to: \"code\",   label: \"loop\", loop: false },\n  ];\n  const pos = Object.fromEntries(nodes.map(n => [n.id, { x: n.x, y: n.y }]));\n  const svg = document.getElementById(\"grafo\");\n  const NS = \"http://www.w3.org/2000/svg\";\n  function el(tag, attrs) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; }\n\n  const edgePaths = [], edgeArrows = [];\n  edges.forEach((ed) => {\n    const a = pos[ed.from], b = pos[ed.to];\n    let d, mid;\n    if (ed.loop) {\n      const dir = ed.from === \"engine\" ? 1 : -1;\n      const cx = 520 + dir * 150, cy = (a.y + b.y) / 2;\n      d = `M ${a.x} ${a.y} C ${cx} ${a.y}, ${cx} ${b.y}, ${b.x} ${b.y}`;\n      mid = { x: cx, y: cy };\n    } else if (ed.from === \"done\") {\n      d = `M ${a.x} ${a.y} C ${(a.x+b.x)/2} 420, ${(a.x+b.x)/2} 420, ${b.x} ${b.y}`;\n      mid = { x: (a.x + b.x) / 2, y: 390 };\n    } else {\n      const dx = Math.abs(b.x - a.x), dy = Math.abs(b.y - a.y);\n      if (dy > dx) {\n        const my = (a.y + b.y) / 2;\n        d = `M ${a.x} ${a.y} C ${a.x} ${my}, ${b.x} ${my}, ${b.x} ${b.y}`;\n        mid = { x: (a.x + b.x) / 2, y: my };\n      } else {\n        const mx = (a.x + b.x) / 2;\n        d = `M ${a.x} ${a.y} C ${mx} ${a.y}, ${mx} ${b.y}, ${b.x} ${b.y}`;\n        mid = { x: mx, y: (a.y + b.y) / 2 };\n      }\n    }\n    const path = el(\"path\", { class: \"edge\", d });\n    svg.appendChild(path); edgePaths.push(path);\n    const ang = Math.atan2(b.y - mid.y, b.x - mid.x);\n    const tx = b.x - 18 * Math.cos(ang), ty = b.y - 18 * Math.sin(ang);\n    const arrow = el(\"path\", { class: \"arrow\", d: `M ${tx} ${ty} l 8 ${-4} l -8 ${-4} z`, transform: `rotate(${ang*180/Math.PI} ${tx} ${ty})` });\n    svg.appendChild(arrow); edgeArrows.push(arrow);\n  });\n\n  const nodeGroups = {};\n  nodes.forEach(n => {\n    const g = el(\"g\", { class: \"node\" });\n    g.appendChild(el(\"rect\", { x: n.x - 65, y: n.y - 29, width: 130, height: 58 }));\n    const t = el(\"text\", { class: \"t\", x: n.x, y: n.y - 4, \"text-anchor\": \"middle\" }); t.textContent = n.label;\n    const s = el(\"text\", { class: \"s\", x: n.x, y: n.y + 16, \"text-anchor\": \"middle\" }); s.textContent = n.sub;\n    g.appendChild(t); g.appendChild(s); svg.appendChild(g); nodeGroups[n.id] = g;\n  });\n\n  const travel = el(\"circle\", { class: \"travel\", r: 6, opacity: 0 });\n  svg.appendChild(travel);\n  const caption = document.getElementById(\"caption\");\n  const N = edges.length;\n  let i = 0, raf = null;\n\n  function clearActive() {\n    nodes.forEach(n => nodeGroups[n.id].classList.remove(\"active\"));\n    edgePaths.forEach(p => p.classList.remove(\"active\"));\n    edgeArrows.forEach(a => a.classList.remove(\"active\"));\n  }\n  function animateEdge(idx) {\n    const ed = edges[idx];\n    clearActive();\n    edgePaths[idx].classList.add(\"active\");\n    edgeArrows[idx].classList.add(\"active\");\n    nodeGroups[ed.from].classList.add(\"active\");\n    caption.innerHTML = `Paso ${idx+1}/${N}: <b>${ed.from}</b> â <b>${ed.to}</b> (${ed.label})`;\n    const path = edgePaths[idx], len = path.getTotalLength();\n    const t0 = performance.now(), dur = 900;\n    function step(now) {\n      let p = (now - t0) / dur; if (p > 1) p = 1;\n      const pt = path.getPointAtLength(p * len);\n      travel.setAttribute(\"cx\", pt.x); travel.setAttribute(\"cy\", pt.y);\n      travel.setAttribute(\"opacity\", 1);\n      if (p < 1) raf = requestAnimationFrame(step);\n      else { nodeGroups[ed.to].classList.add(\"active\"); i = (i + 1) % N; setTimeout(() => animateEdge(i), 320); }\n    }\n    raf = requestAnimationFrame(step);\n  }\n  function start() { cancelAnimationFrame(raf); i = 0; animateEdge(0); }\n  svg.addEventListener(\"click\", start);\n  start();\n})();",
+      "source": "inline_script",
+      "context": "script"
+    },
+    {
+      "code": "---\ntype: Resumen\ntitle: \"â¡ Anime.js v4 â Animaciones Web (Resumen minimalista)\"\ndescription: \"Resumen minimalista de Anime.js v4: 4 casos de uso con scripts listos para implementar (animaciÃ³n bÃ¡sica, timeline, stagger, controles).\"\nfuente: \"https://animejs.com/documentation\"\nsitio: \"https://gerardoesquivia.com/animejs/\"\ntags: [resumen, animejs, javascript, animaciones, okf]\ntimestamp: 2026-08-28\ncreator: \"Gerardo Esquivia Zapata\"\n---\n\n# â¡ Anime.js v4 â Animaciones Web (Resumen)\n\n> **Para quÃ©:** animar elementos web (CSS, transforms, SVG, objetos JS) de forma sencilla y sin dependencias.\n> **CÃ³mo:** instalar `npm install animejs`; usar `animate(targets, params)` para una animaciÃ³n, `createTimeline()` para secuencias, `stagger()` para cascadas y los mÃ©todos `play()/pause()/reverse()/seek()` para controlar.\n\n## ð¯ Para quÃ© sirve\n- Animaciones fluidas de UI (transformaciones, opacidad, color, SVG, texto).\n- Secuencias coreografiadas y efectos escalonados en listas.\n- Control total del playback desde cÃ³digo.\n\n## ð ï¸ CÃ³mo se usa â scripts minimalistas\n\n### 1. AnimaciÃ³n bÃ¡sica\n```js\n// npm install animejs\nimport { animate } from 'animejs';\n\nanimate('.cuadrado', { translateX: 250, duration: 800, ease: 'outBounce' });\n\n// RepeticiÃ³n en bucle, yendo y viniendo:\nanimate('.cuadrado', { translateX: 250, loop: true, alternate: true });\n```\n\n### 2. Timeline (secuencia sincronizada)\n```js\nimport { createTimeline } from 'animejs';\n\nconst tl = createTimeline({ defaults: { duration: 750 } });\n\ntl.label('inicio')\n  .add('.cuadrado',  { x: '15rem' }, 500)         // empieza en el ms 500\n  .add('.circulo',   { x: '15rem' }, 'inicio')    // a la vez que 'inicio'\n  .add('.triangulo', { x: '15rem', rotate: '1turn' }, '<-=500'); // 500ms antes de acabar\n```\n\n### 3. Stagger (efecto cascada)\n```js\nimport { animate, stagger } from 'animejs';\n\nanimate('.item', {\n  x: '17rem',\n  scale: stagger([1, .1]),   // valores progresivos por elemento\n  delay: stagger(100),       // 100ms entre cada elemento\n});\n```\n\n### 4. Controles y playback\n```js\nimport { animate } from 'animejs';\n\nconst anim = animate('.logo', { translateX: 200, loop: true, alternate: true });\n\nanim.pause();     // pausar\nanim.play();      // reanudar\nanim.reverse();   // invertir\nanim.restart();   // reiniciar\nanim.seek(500);   // ir al ms 500\nanim.complete();  // ir al final\n```\n\n## ð Conceptos clave\n| FunciÃ³n / parÃ¡metro | QuÃ© es |\n|---|---|\n| `animate(targets, params)` | Crea y reproduce una animaciÃ³n |\n| `createTimeline()` | LÃ­nea de tiempo con `.add()`, `.label()`, posiciones |\n| `stagger(value)` | Valores/retardos progresivos entre targets |\n| `duration` Â· `delay` Â· `ease` | ParÃ¡metros del tween (en v4: `ease`, no `easing`) |\n| `loop` Â· `alternate` Â· `autoplay` | Ajustes de reproducciÃ³n |\n| `onBegin` Â· `onUpdate` Â· `onComplete` | Callbacks del ciclo de vida |\n| `play()` Â· `pause()` Â· `reverse()` Â· `seek()` Â· `revert()` | MÃ©todos de control |\n| `splitText()` Â· `scrambleText()` Â· `onScroll()` Â· `morphTo()` | Texto, scroll y SVG |\n\n## ð Fuente\nhttps://animejs.com/documentation\nSitio: https://gerardoesquivia.com/animejs/\n\n---\n\n## ð¥ CÃ³mo agregar esto a tu OKF (para el agente)\n1. Guarda este archivo en tu vault (ej. `ð Proyectos/`).\n2. El frontmatter ya es OKF: no modifiques `type` ni `creator`.\n3. Implementa directo: copia los scripts (ajusta selectores y valores). No necesitas investigar mÃ¡s.",
+      "source": "inline_script",
+      "context": "script"
+    },
+    {
+      "code": "function descargarMD() {\n  const md = document.getElementById('md-resumen').textContent.trim();\n  const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });\n  const url = URL.createObjectURL(blob);\n  const a = document.createElement('a');\n  a.href = url;\n  a.download = 'resumen-animejs.md';\n  document.body.appendChild(a);\n  a.click();\n  a.remove();\n  URL.revokeObjectURL(url);\n}",
+      "source": "inline_script",
+      "context": "script"
+    }
+  ]
+}
